@@ -1,3 +1,5 @@
+import React from "react";
+
 import {
     ChatBubbleOutlineOutlined,
     FavoriteBorderOutlined,
@@ -140,7 +142,7 @@ const PostWidget = ({
                         <ArrowBackOutlined />
                     </IconButton> */}
                 <FlexBetween style={{padding:"0.4rem 0.9rem", borderRadius:"0.5rem", backgroundColor: palette.neutral.light}}>
-                    <Typography variant="h4" >{yeni && "🟢 "} {gender == "kiz" && "🟣"}{gender == "erkek" && "🔴"} { name}</Typography>
+                    <Typography variant="h5" fontWeight="500" >{yeni && "🟢 "} {gender == "kiz" && "🟣"}{gender == "erkek" && "🔴"} { name}</Typography>
                     <Typography color={main} variant="h5">{formatDate(new Date(createdAt))}</Typography>
                 </FlexBetween>
             </Box>
@@ -201,7 +203,11 @@ const PostWidget = ({
                 sx ={{ borderRadius:"1rem"}}
                 
                 onClick={() => {
-                    navigator.clipboard.writeText(shareLink);
+                    navigator.clipboard.writeText(shareLink).then(() => {
+                        console.log("Text copied to clipboard");
+                    }).catch((error) => {
+                        console.error("Failed to copy text clipboard", error);
+                    });
                     handleCloseDialog();
                     setIsSnackbarOpen(true);
                    }}

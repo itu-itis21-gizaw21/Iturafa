@@ -1,3 +1,5 @@
+import React from "react";
+
 import {
     ChatBubbleOutlineOutlined,
     FavoriteBorderOutlined,
@@ -140,8 +142,8 @@ const CommentWidget = ({
             <WidgetWrapper p="0.7rem 0.7rem 0rem 0.7rem !important" width= {isNonMobileScreen ? "40%": "80%"} m="0rem auto 0.2rem auto" style={{border:"1px dotted #00D5FA" }} >
             <Box>
             <Box>
-            <FlexBetween style={{padding:"0.5rem 0.9rem",borderRadius:".5rem", backgroundColor: palette.neutral.light}}>
-                    <Typography variant="h4" >{name}</Typography>
+            <FlexBetween style={{padding:"0.3rem 0.9rem",borderRadius:".5rem", backgroundColor: palette.neutral.light}}>
+                    <Typography variant="h5" fontWeight="500" >{name}</Typography>
                     <Typography color={main} variant="h5">{formatDate(new Date(createdAt))}</Typography>
             </FlexBetween>
             </Box>
@@ -198,7 +200,11 @@ const CommentWidget = ({
                 variant="contained"
                 color="primary"
                 onClick={() => {
-                    navigator.clipboard.writeText(shareLink);
+                    navigator.clipboard.writeText(shareLink).then(() => {
+                        console.log("Text copied to clipboard");
+                    }).catch((error) => {
+                        console.error("Failed to copy text clipboard", error);
+                    });
                     handleCloseDialog();
                     setIsSnackbarOpen(true);
                    }}

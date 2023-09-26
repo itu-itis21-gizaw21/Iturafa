@@ -1,3 +1,5 @@
+import React from "react";
+
 import {
     ChatBubbleOutlineOutlined,
     FavoriteBorderOutlined,
@@ -139,13 +141,13 @@ const ReplyWidget = ({
         <div style={{ }}>
         <WidgetWrapper p="0.7rem 0.7rem 0rem 0.7rem !important"  width= {isNonMobileScreen ? "35%": "70%"} m="0rem auto 0.2rem auto" style={{border:"1px dotted #00D5FA"}}>
         <Box>
-        <FlexBetween style={{padding:"0.4rem 0.9rem",borderRadius:"0.5rem",  backgroundColor: palette.neutral.light}}>
-                    <Typography variant="h4" >{name}</Typography>
+        <FlexBetween style={{padding:"0.2rem 0.9rem",borderRadius:"0.5rem",  backgroundColor: palette.neutral.light}}>
+                    <Typography variant="h5" fontWeight="500" >{name}</Typography>
                     <Typography color={main} variant="h5">{formatDate(new Date(createdAt))}</Typography>
         </FlexBetween>
 
         <Box>
-            <Typography  variant="h4" sx={{ mt: "1rem",wordWrap: "break-word"  }}>{description}</Typography>
+            <Typography  variant="h5" sx={{ mt: "1rem",wordWrap: "break-word"  }}>{description}</Typography>
         </Box>
         </Box>
         <Box mt="1rem" border="1px solid #00D5FA"></Box>
@@ -191,7 +193,11 @@ const ReplyWidget = ({
                 sx ={{ borderRadius:"1rem",
                 backgroundColor:"primary"}}
                 onClick={() => {
-                    navigator.clipboard.writeText(shareLink);
+                    navigator.clipboard.writeText(shareLink).then(() => {
+                        console.log("Text copied to clipboard");
+                    }).catch((error) => {
+                        console.error("Failed to copy text clipboard", error);
+                    });
                     handleCloseDialog();
                     setIsSnackbarOpen(true);
                    }}
