@@ -33,7 +33,7 @@ const Notification = (props) => {
 
   useEffect(() => {
     const getPostLikeNotification = async () => {
-      const response = await fetch(`http://localhost:3001/api/posts/user/like/${myVariable}`,{
+      const response = await fetch(`/api/posts/user/like/${myVariable}`,{
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -44,7 +44,7 @@ const Notification = (props) => {
     };
 
     const getPostCommentNotification = async () => {
-      const response = await fetch(`http://localhost:3001/api/posts/user/comment/${myVariable}`,{
+      const response = await fetch(`/api/posts/user/comment/${myVariable}`,{
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -55,7 +55,7 @@ const Notification = (props) => {
     };
 
     const getCommentLikeNotification = async () => {
-      const response = await fetch(`http://localhost:3001/api/posts/post/comment/${myVariable}`,{
+      const response = await fetch(`/api/posts/post/comment/${myVariable}`,{
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -66,7 +66,7 @@ const Notification = (props) => {
     };
 
     const getCommentCommentNotification = async () => {
-      const response = await fetch(`http://localhost:3001/api/posts/post/reply/${myVariable}`,{
+      const response = await fetch(`/api/posts/post/reply/${myVariable}`,{
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -77,7 +77,7 @@ const Notification = (props) => {
     };
 
     const getReplyLikeNotification = async () => {
-      const response = await fetch(`http://localhost:3001/api/posts/post/comment/replies/${myVariable}`,{
+      const response = await fetch(`/api/posts/post/comment/replies/${myVariable}`,{
         method: "GET",
         headers: {
           "Content-Type": "application/json",

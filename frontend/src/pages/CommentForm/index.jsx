@@ -71,7 +71,7 @@ const CommentForm = (props) => {
             "commentedAt": new Date(),
             "postId": myId,
         };
-        const response = await fetch(`http://localhost:3001/api/posts/${myId}/comment`,{
+        const response = await fetch(`/api/posts/${myId}/comment`,{
         
         method: "PATCH",
         headers: {

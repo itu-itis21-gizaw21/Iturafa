@@ -60,7 +60,7 @@ const ReplyWidget = ({
 
     const patchLike = async () => {
 
-        const response = await fetch(`http://localhost:3001/api/posts/${postId}/${commentId}/${replyId}/like`,{
+        const response = await fetch(`/api/posts/${postId}/${commentId}/${replyId}/like`,{
         
         method: "PATCH",
         headers: {

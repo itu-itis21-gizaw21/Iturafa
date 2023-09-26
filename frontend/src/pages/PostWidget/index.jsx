@@ -58,7 +58,7 @@ const PostWidget = ({
 
     const patchLike = async () => {
 
-        const response = await fetch(`http://localhost:3001/api/posts/${postId}/like`,{
+        const response = await fetch(`/api/posts/${postId}/like`,{
         
         method: "PATCH",
         headers: {

@@ -33,7 +33,7 @@ export const postSlice = createSlice({
 
 export const fetchPosts = () => async (dispatch) => {
     try {
-        const response = await fetch("http://localhost:3001/api/posts");
+        const response = await fetch("/api/posts");
         const posts = await response.json();
         dispatch(setPosts({ posts }));
     } catch (error) {
@@ -43,7 +43,7 @@ export const fetchPosts = () => async (dispatch) => {
 
 export const fetchPostsN = () => async (dispatch) => {
     try {
-        const response = await fetch("http://localhost:3001/api/posts/new");
+        const response = await fetch("/api/posts/new");
         const posts = await response.json();
         dispatch(setPosts({ posts }));
     } catch (error) {

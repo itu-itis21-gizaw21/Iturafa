@@ -52,7 +52,7 @@ async function PfetchUserData(createdAt){
       };
 
       try{
-      const response = await fetch("http://localhost:3001/api/user",{
+      const response = await fetch("/api/user",{
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -61,23 +61,23 @@ async function PfetchUserData(createdAt){
       });
    
       const userData = await response.json();
-      console.log("userData",userData)
+      // console.log("userData",userData)
       return userData;
  
     } catch (error) {
-      console.error("Error fetching user:OutsideCatch", error);
+      // console.error("Error fetching user:OutsideCatch", error);
       return null;
     }
 }
 async function GfetchUserData(createdX){
   
     try{
-        const response = await fetch(`http://localhost:3001/api/user?createdAt=${createdX}`);
+        const response = await fetch(`/api/user?createdAt=${createdX}`);
         const user = await response.json();
         return user;
   
     } catch (error) {
-        console.error("Error fetching posts:OutsideCatch", error);
+        // console.error("Error fetching posts:OutsideCatch", error);
         return null;
     }
 }
@@ -94,7 +94,7 @@ else{
 }
 
 uniqueIdentifier = localStorage.getItem('uniqueIdentifier');
-console.log("uniqueIdentifier",uniqueIdentifier)
+// console.log("uniqueIdentifier",uniqueIdentifier)
 
 document.title = 'Ituraf';
 

@@ -100,7 +100,7 @@ const PostForm = (props) => {
             "yeni": checkx,
             "gender": gender,
         };
-        const response = await fetch("http://localhost:3001/api/posts", {
+        const response = await fetch("/api/posts", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

@@ -72,7 +72,7 @@ const ReplyForm = (props) => {
             "postId": myId,
            
         };
-        const response = await fetch(`http://localhost:3001/api/posts/${myId}/${commentId}/reply`,{
+        const response = await fetch(`/api/posts/${myId}/${commentId}/reply`,{
         
         method: "PATCH",
         headers: {
