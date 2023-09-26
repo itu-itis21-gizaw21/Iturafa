@@ -151,7 +151,7 @@ const ReplyForm = (props) => {
                     textTransform: "none",
                     overflow: "hidden",
                     padding: "0.25rem 0.5rem",
-                    fontSize: "20px",
+                    fontSize: "0.9rem",
                     "&:hover": {
                         backgroundColor: palette.primary.dark,
                     }
