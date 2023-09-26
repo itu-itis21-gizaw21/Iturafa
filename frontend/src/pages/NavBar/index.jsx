@@ -104,8 +104,8 @@ const NavBar = (props) => {
         <FlexAround gap="1rem">
             <FlexBetween gap="1rem" ml="1rem" sx={{backgroundColor:!newx ? "#33b249":"red",borderRadius: "0.5rem"}}>
             
-            <Link to={!newx ? `/new`: `` } 
-                state={{
+            <Link to={!newx ? `/new`: `/` } 
+                style={{
                     textDecoration: 'none',
                     color: 'inherit'
             }}>
