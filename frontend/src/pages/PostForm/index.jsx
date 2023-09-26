@@ -239,7 +239,7 @@ const PostForm = (props) => {
                     textTransform: "none",
                     overflow: "hidden",
                     padding: "0.25rem 0.5rem",
-                    fontSize: "20px",
+                    fontSize: "1.1rem",
                     "&:hover": {
                         backgroundColor: palette.primary.dark,
                     }
