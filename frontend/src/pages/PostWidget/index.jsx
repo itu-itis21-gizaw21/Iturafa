@@ -88,7 +88,7 @@ const PostWidget = ({
 
     const repCountx = async () => {
         try {
-          const response = await fetch(`http://localhost:3001/api/posts/post/replyx/${postUserId}/${postId}`);
+          const response = await fetch(`api/posts/post/replyx/${postUserId}/${postId}`);
           if (!response.ok) {
             throw new Error('Network response was not ok');
           }
