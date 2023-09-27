@@ -524,6 +524,45 @@ app.get('/api/posts/post/reply/:userId', async (req, res) => {
     
   });
 
+app.get('/api/posts/post/replyx/:userId/:postId', async (req, res) => {
+  const userId = req.params.userId;
+  
+  const comments = [];
+  const replies = [];
+  const subReplies = [];
+  
+  const post = await Post.find({ _id: req.params.postId});
+
+  post.forEach((post) => {
+          comments.push(post.comments);
+    });
+
+  comments.forEach((comment) => {
+      replies.push(comment);
+  });
+
+
+    
+  const filteredLengths = replies.map((objectGroup, index1) =>
+  objectGroup
+      .filter((commentObject) => {
+      const commentData = commentObject[Object.keys(commentObject)[0]];
+      return true;
+      })
+      .map((commentObject, index2) => {
+      const commentData = commentObject[Object.keys(commentObject)[0]];
+      const commentsCount = commentData.comments.length;
+  
+      return {
+     
+          commentsCount: commentsCount,
+      };
+      }));
+
+  res.status(200).json(filteredLengths);
+  
+});
+
 /* app.get('*', (req, res) => {
     res.sendFile('/root/iturafcom/server/static/index.html');
   }) */
