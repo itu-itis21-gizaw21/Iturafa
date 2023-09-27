@@ -46,6 +46,7 @@ const PostWidget = ({
     const [isDialogOpen, setIsDialogOpen] = useState(false);
     const [shareLink, setShareLink] = useState("");
     const [isSnackbarOpen, setIsSnackbarOpen] = useState(false);
+    const [repCount, setRepCount] = useState(0);    
         
         
     const dispatch = useDispatch();
@@ -85,7 +86,32 @@ const PostWidget = ({
         setIsDialogOpen(false);
       };
 
+    const repCountx = async () => {
+        try {
+          const response = await fetch(`http://localhost:3001/api/posts/post/replyx/${postUserId}/${postId}`);
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          const data = await response.json();
+          const flattenedData = data.flat();
+          const commentsCounts = flattenedData.map((item) => item.commentsCount);
+          const totalCommentsCount = commentsCounts.reduce((acc, count) => acc + count, 0);
+          return totalCommentsCount;
+        } catch (error) {
+          console.error('Fetch error:', error);
+          throw error; // Rethrow the error to propagate it
+        }
+      };
+      
     
+
+      repCountx()
+        .then((ct) => {
+            setRepCount(ct);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
       
 
     const formatDate = (date) => {
@@ -173,7 +199,7 @@ const PostWidget = ({
                             <ChatBubbleOutlineOutlined />
                         </IconButton>
                    </Link>
-                        <Typography>{commentCount}</Typography>
+                        <Typography>{commentCount + repCount}</Typography>
                     </Box>
 
                     <Box gap="0.3rem"  width="100%" display="flex" alignItems="center">
