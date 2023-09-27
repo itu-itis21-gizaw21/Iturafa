@@ -199,7 +199,7 @@ const PostWidget = ({
                             <ChatBubbleOutlineOutlined />
                         </IconButton>
                    </Link>
-                        <Typography>{repCount}</Typography>
+                        <Typography>{commentCount}</Typography>
                     </Box>
 
                     <Box gap="0.3rem"  width="100%" display="flex" alignItems="center">
