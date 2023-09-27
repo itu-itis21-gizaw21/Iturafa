@@ -53,7 +53,7 @@ const PostWidget = ({
     const isLiked = Boolean(likes.includes(postUserId)); 
     
     const likeCount = Object.keys(likes).length; 
-    const commentCount = Object.keys(comments).length;
+    let commentCount = Object.keys(comments).length;
     const isNonMobileScreen = useMediaQuery("(min-width: 1000px)");
     const { palette } = useTheme();
     const main = palette.neutral.main;
