@@ -156,7 +156,7 @@ const PostWidget = ({
         return `${paddedHours}:${paddedMinutes}:${paddedSeconds} ${paddedDay}-${paddedMonth}-${paddedYear}`; */
       }
           
-    commentCount += repCount
+  
     return (
             <WidgetWrapper p="0.7rem 0.7rem 0rem 0.7rem !important" width= {isNonMobileScreen ? "50%": "90%"} m="0rem auto 0.2rem auto" style={{border:"0.1px dotted #00D5FA", borderBottom:"0.1px dotted #00D5FA" }} >
             <Box>
