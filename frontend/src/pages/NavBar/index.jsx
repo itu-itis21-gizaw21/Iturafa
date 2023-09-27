@@ -133,7 +133,7 @@ const NavBar = (props) => {
             <IconButton onClick={() => {
                 dispatch(setMode());
              }}>
-                { theme.palette.mode === "light" ? (
+                { theme.palette.mode === "dark" ? (
                  <LightMode sx = {{ fontSize: "25px" }} /> 
                  ) : (
                  <DarkMode sx= {{ color: dark, fontSize:"25px"}}  />)}
