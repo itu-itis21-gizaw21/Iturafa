@@ -174,7 +174,7 @@ const PostWidget = ({
             </Box>
 
             <Box>
-                <Typography  variant="h4" sx={{ mt: "1rem",wordWrap: "break-word"  }}>{description}</Typography>
+                <Typography  variant="h5" sx={{ mt: "1rem",wordWrap: "break-word"  }}>{description}</Typography>
             </Box>
             </Box>
             <Box mt="1rem" borderTop="0.001rem solid #00D5FA"></Box>
