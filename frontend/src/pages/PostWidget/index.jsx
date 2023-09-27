@@ -107,7 +107,7 @@ const PostWidget = ({
 
       repCountx()
         .then((ct) => {
-            setRepCount(ct);
+            setRepCount(ct + commentCount);
         })
         .catch((error) => {
             console.error('Error:', error);
@@ -199,7 +199,7 @@ const PostWidget = ({
                             <ChatBubbleOutlineOutlined />
                         </IconButton>
                    </Link>
-                        <Typography>{commentCount}</Typography>
+                        <Typography>{repCount}</Typography>
                     </Box>
 
                     <Box gap="0.3rem"  width="100%" display="flex" alignItems="center">
