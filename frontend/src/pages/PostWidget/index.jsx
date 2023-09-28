@@ -86,33 +86,6 @@ const PostWidget = ({
         setIsDialogOpen(false);
       };
 
-    const repCountx = async () => {
-        try {
-          const response = await fetch(`api/posts/post/replyx/${postUserId}/${postId}`);
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          const data = await response.json();
-          const flattenedData = data.flat();
-          const commentsCounts = flattenedData.map((item) => item.commentsCount);
-          const totalCommentsCount = commentsCounts.reduce((acc, count) => acc + count, 0);
-          return totalCommentsCount;
-        } catch (error) {
-          console.error('Fetch error:', error);
-          throw error; // Rethrow the error to propagate it
-        }
-      };
-      
-    
-
-      repCountx()
-        .then((ct) => {
-            setRepCount(ct + commentCount);
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
-      
 
     const formatDate = (date) => {
         const now = new Date();
