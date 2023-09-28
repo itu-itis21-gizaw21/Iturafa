@@ -26,7 +26,8 @@ function App(props) {
     <Routes>
       <Route path="/" element={<HomePage myVariable={myVariable}/>} />
       <Route path="/new/trending" element={<HomePage myVariable={myVariable}/>} />
-      <Route path="/x/:postId" element={<SinglePost myVariable={myVariable}/>} />
+      <Route path="/x/:postId" element={<HomePage myVariable={myVariable}/>} />
+      <Route path="/y/:postId" element={<SinglePost myVariable={myVariable}/>} />
       <Route path="/notification/user/:postUserId" element={<Notification myVariable={myVariable}/>} />
       <Route path="/new" element={<New myVariable={myVariable}/>} />
 
