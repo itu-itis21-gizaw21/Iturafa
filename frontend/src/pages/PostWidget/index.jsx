@@ -66,7 +66,14 @@ const PostWidget = ({
     const primary = palette.primary.main;
 
     const patchLike = async () => {
-        if(isDisLiked) patchDisLike()
+        if(isDisLiked) {
+        await patchDisLike()
+        }
+
+        const updatedLikes = isLiked
+      ? likes.filter(id => id !== postUserId)
+      : [...likes, postUserId];
+
         const response = await fetch(`/api/posts/${postId}/like`,{
         
         method: "PATCH",
@@ -80,8 +87,16 @@ const PostWidget = ({
         dispatch(addPost({ post: updatedPost }));
     };
     
+
     const patchDisLike = async () => {
-        if(isLiked) patchLike();
+        if(isLiked) {
+            await patchLike();
+        }
+
+         const updatedDislikes = isDisLiked
+      ? dislikes.filter(id => id !== postUserId)
+      : [...(dislikes || []), postUserId];
+      
         const response = await fetch(`/api/posts/${postId}/dislike`,{
         
         method: "PATCH",
