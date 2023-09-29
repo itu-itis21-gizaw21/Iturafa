@@ -29,11 +29,19 @@ const PostSchema = new mongoose.Schema({
         type: [],
         of: Boolean,
     },
+    dislikes: {
+        type: [],
+        of: Boolean,
+    },
     comments: {
         type: [],
         of: String,
     },
     likedAt: {
+        type: Date,
+        default: new Date()
+    },
+    dislikedAt: {
         type: Date,
         default: new Date()
     },

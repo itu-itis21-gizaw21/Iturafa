@@ -70,37 +70,41 @@ const PostList = (props) => {
       }
     
 
+
       return(
-            <>
-            {
-                Array.from(posts).map(
-                    ({
-                        _id,
-                        userName,
-                        description,
-                        createdAt,
-                        likes,
-                        comments,
-                        yeni,
-                        gender,
-            })=> (<PostWidget
-            
-                key={_id ||0}
-                postId={_id || 0}
-                postUserId={myVariable}
-                name={userName}
-                description={description}
-                createdAt={createdAt}
-                likes={likes}
-                comments={comments} 
-                isSingle={false}
-                yeni={yeni || false}
-                gender={gender || ""}
-            />)
-            )}
-            </>
-      );
-    }
+        <>
+        {
+            Array.from(posts).map(
+                ({
+                    _id,
+                    userName,
+                    description,
+                    createdAt,
+                    likes,
+                    dislikes,
+                    comments,
+                    yeni,
+
+                    gender,
+        })=> (<PostWidget
+        
+            key={_id ||0}
+            postId={_id || 0}
+            postUserId={myVariable}
+            name={userName}
+            description={description}
+            createdAt={createdAt}
+            likes={likes}
+            dislikes={dislikes}
+            comments={comments} 
+            isSingle={false}
+            yeni={yeni || false}
+            gender={gender || ""}
+        />)
+        )}
+        </>
+  );
+}
 
 
 

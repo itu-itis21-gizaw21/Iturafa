@@ -35,6 +35,7 @@ const PostWidget = ({
         description,
         createdAt,
         likes,  
+        dislikes,
         comments,
         isSingle,
         yeni,
@@ -50,9 +51,12 @@ const PostWidget = ({
         
         
     const dispatch = useDispatch();
+        
     const isLiked = Boolean(likes.includes(postUserId)); 
-    
     const likeCount = Object.keys(likes).length; 
+    const isDisLiked = Boolean(dislikes.includes(postUserId));
+    const dislikeCount = Object.keys(dislikes).length;
+
     let commentCount = Object.keys(comments).length;
     const isNonMobileScreen = useMediaQuery("(min-width: 1000px)");
     const { palette } = useTheme();
@@ -74,7 +78,21 @@ const PostWidget = ({
         dispatch(addPost({ post: updatedPost }));
     };
     
-  
+    const patchDisLike = async () => {
+
+        const response = await fetch(`/api/posts/${postId}/dislike`,{
+        
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({idx : postUserId}),
+       
+        });
+        const updatedPost = await response.json();
+        dispatch(addPost({ post: updatedPost }));
+    };
+    
 
     const handleShareClick = () => {
         const generatedShareLink = `${window.location.origin}/x/${postId}`;
@@ -150,11 +168,17 @@ const PostWidget = ({
                 <Typography  variant="h5" sx={{ mt: "1rem",wordWrap: "break-word"  }}>{description}</Typography>
             </Box>
             </Box>
+
+
             <Box mt="1rem" borderTop="0.001rem solid #00D5FA"></Box>
             
             <Box mt="0.25rem">
                 <FlexAround gap="1rem">
-                    <Box gap="0.3rem"  width="100%" display="flex" alignItems="center">
+               
+                <Box gap="0.5rem"  width="100%" display="flex" alignItems="center">
+                    <FlexBetween width={isNonMobileScreen?"35% !important":"40% !important"} margin="0em auto 0rem 0rem">
+                        
+                    <Box   display="flex" alignItems="center">
                         <IconButton onClick={patchLike}>
                         {isLiked ? (
                             <FavoriteOutlined sx={{ color: primary }} />
@@ -163,6 +187,20 @@ const PostWidget = ({
                         )}
                         </IconButton>
                         <Typography>{likeCount}</Typography>
+                    </Box>
+
+                    <Box  display="flex" alignItems="center">
+                        <IconButton onClick={patchDisLike}>
+                        {isDisLiked ? (
+                            <ThumbDownIcon sx={{ color: primary }} />
+                        ) : (
+                            <ThumbDownOutlined />
+                        )}
+                        </IconButton>
+                        <Typography>{dislikeCount}</Typography>
+                    </Box>
+
+                    </FlexBetween>
                     </Box>
 
 
