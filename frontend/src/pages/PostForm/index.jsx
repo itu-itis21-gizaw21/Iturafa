@@ -244,7 +244,7 @@ const PostForm = (props) => {
                         backgroundColor: palette.primary.dark,
                     }
                     }}>   
-            ituraf et
+            ituraf.eth
             </Button>
             </FlexBetween>
             </FlexAround>
