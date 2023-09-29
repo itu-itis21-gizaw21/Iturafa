@@ -30,7 +30,7 @@ const HomePage = (props) => {
 
       <NavBar myVariable={myVariable} newx={false}/>
       <PostForm myVariable={myVariable} pcheck={false} /> {/* Component for creating new posts */}
-      <Box sx={{ margin: "1.5rem auto"}} border="1px solid #00D5FA" width= {isNonMobileScreen ? "55%": "95%"} he>
+      <Box sx={{ margin: "1.5rem auto"}} border="1px solid #00D5FA" width= {isNonMobileScreen ? "55%": "95%"} />
       <PostList myVariable={myVariable} /> {/* Component for displaying posts */}
       <Box sx={{ margin: "3rem"}} border="1px solid transparent" height="50%" ></Box>
     </div>
