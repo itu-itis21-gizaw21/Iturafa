@@ -67,7 +67,7 @@ const NavBar = (props) => {
                     },
                 }}
                 >
-                ITUraf.eth
+                ITUraf
             </Typography>
         </FlexAround>
        {isNonMobileScreen &&
