@@ -67,7 +67,6 @@ const PostWidget = ({
 
     const patchLike = async () => {
         const response = await fetch(`/api/posts/${postId}/like`,{
-        
         method: "PATCH",
         headers: {
             "Content-Type": "application/json",
@@ -81,9 +80,7 @@ const PostWidget = ({
     
 
     const patchDisLike = async () => {
-      
         const response = await fetch(`/api/posts/${postId}/dislike`,{
-        
         method: "PATCH",
         headers: {
             "Content-Type": "application/json",
