@@ -40,6 +40,7 @@ const SinglePost = (props) => {
                 description={selectedPost.description}
                 createdAt={selectedPost.createdAt}
                 likes={selectedPost.likes}
+                dislikes={selectedPost?.dislikes || [{}]}
                 comments={selectedPost.comments} 
                 isSingle = {true}
             />
