@@ -66,7 +66,7 @@ const PostWidget = ({
     const primary = palette.primary.main;
 
     const patchLike = async () => {
-
+        if(isDisLiked) patchDisLike()
         const response = await fetch(`/api/posts/${postId}/like`,{
         
         method: "PATCH",
@@ -81,7 +81,7 @@ const PostWidget = ({
     };
     
     const patchDisLike = async () => {
-
+        if(isLiked) patchLike();
         const response = await fetch(`/api/posts/${postId}/dislike`,{
         
         method: "PATCH",
