@@ -55,7 +55,7 @@ const PostWidget = ({
         
     const isLiked = Boolean(likes.includes(postUserId)); 
     const likeCount = Object.keys(likes).length; 
-    const isDisLiked = Boolean(dislikes.includes(postUserId));
+    const isDisLiked = Boolean(dislikes?.includes(postUserId));
     const dislikeCount = Object.keys(dislikes).length;
 
     let commentCount = Object.keys(comments).length;
