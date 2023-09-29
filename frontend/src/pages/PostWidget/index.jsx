@@ -57,7 +57,7 @@ const PostWidget = ({
     const likeCount = Object.keys(likes).length; 
 
     const isDisLiked = dislikes ? Boolean(dislikes.includes(postUserId)) : false;
-    const dislikeCount = dislikes ? Object.keys(dislikes).length : 0;
+    const dislikeCount = dislikes ? Object.keys(dislikes)?.length : 0;
 
     let commentCount = Object.keys(comments).length;
     const isNonMobileScreen = useMediaQuery("(min-width: 1000px)");
