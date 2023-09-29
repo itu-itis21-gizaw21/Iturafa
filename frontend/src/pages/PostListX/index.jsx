@@ -74,7 +74,7 @@ const PostListX = (props) => {
       return(
         <>
         {
-            Array.from(posts).map(
+            Array.from(posts)?.map(
                 ({
                     _id,
                     userName,
@@ -94,7 +94,7 @@ const PostListX = (props) => {
             description={description}
             createdAt={createdAt}
             likes={likes}
-            dislikes={dislikes || []}
+            dislikes={dislikes || [{}]}
             comments={comments} 
             isSingle={false}
             yeni={yeni || false}
