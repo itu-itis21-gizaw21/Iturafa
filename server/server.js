@@ -179,9 +179,9 @@ app.patch("/api/posts/:id/dislike", async (req, res) => {
       const  postId  = req.params.id;
       const { idx }  = req.body;
       const post = await Post.findById(postId);
-      const isDisLiked = post.dislikes.includes(idx);
+      const isDisLiked = post.dislikes?.includes(idx);
       if(isDisLiked ){
-          post.dislikes = post.dislikes.filter((element) => element !== idx);
+          post.dislikes = post.dislikes?.filter((element) => element !== idx);
       } else{
           post.dislikes.push(idx);
       }
@@ -189,7 +189,7 @@ app.patch("/api/posts/:id/dislike", async (req, res) => {
       
       const updatedPost = await Post.findByIdAndUpdate(
           postId,
-          { dislikes: post.dislikes ,
+          { dislikes: post?.dislikes ,
            dislikedAt : Date.now() },
           { new: true }
       );
