@@ -74,7 +74,7 @@ const PostList = (props) => {
       return(
         <>
         {
-            Array.from(posts).map(
+            Array.from(posts)?.map(
                 ({
                     _id,
                     userName,
@@ -84,7 +84,6 @@ const PostList = (props) => {
                     dislikes,
                     comments,
                     yeni,
-
                     gender,
         })=> (<PostWidget
         
@@ -95,7 +94,7 @@ const PostList = (props) => {
             description={description}
             createdAt={createdAt}
             likes={likes}
-            dislikes={dislikes || []}
+            dislikes={dislikes || [{}]}
             comments={comments || ""} 
             isSingle={false}
             yeni={yeni || false}
