@@ -1,9 +1,9 @@
 import React from "react";
-
 import {
     ChatBubbleOutlineOutlined,
     FavoriteBorderOutlined,
     FavoriteOutlined,
+    ThumbDownOutlined,
     ShareOutlined,
     ArrowBackOutlined
 } from "@mui/icons-material";
@@ -27,6 +27,7 @@ import { addPost } from "state";
 import CommentForm from "pages/CommentForm";
 import { Navigate, useNavigate, useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
+import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 
 const PostWidget = ({ 
         postId,
