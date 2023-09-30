@@ -23,7 +23,7 @@ import {
     useTheme 
 } from "@mui/material";
 
-const PostListX = (props) => {
+const PostListY = (props) => {
     const { myVariable } = props;
    // console.log(props); 
     const dispatch = useDispatch();
@@ -111,4 +111,4 @@ const PostListX = (props) => {
 
 
 
-export default PostListX;
+export default PostListY;
