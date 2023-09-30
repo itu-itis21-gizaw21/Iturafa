@@ -12,6 +12,7 @@ import { createTheme } from '@mui/material/styles';
 import { themeSettings } from './theme';
 import Notification from './pages/Notification';
 import New from './pages/New';
+import Hidden from './pages/Hidden';
 function App(props) {
   const { myVariable } = props;
   const mode = useSelector((state) => state.mode);
@@ -30,6 +31,7 @@ function App(props) {
       <Route path="/y/:postId" element={<SinglePost myVariable={myVariable}/>} />
       <Route path="/notification/user/:postUserId" element={<Notification myVariable={myVariable}/>} />
       <Route path="/new" element={<New myVariable={myVariable}/>} />
+      <Route path="/hidden" element={<Hidden myVariable={myVariable}/>} />
 
     </Routes>
     </ThemeProvider>
