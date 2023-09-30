@@ -28,6 +28,7 @@ import CommentForm from "pages/CommentForm";
 import { Navigate, useNavigate, useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
+import { fetchPosts, fetchPostsN } from "state";
 
 const PostWidget = ({ 
         postId,
@@ -40,7 +41,9 @@ const PostWidget = ({
         comments,
         isSingle,
         yeni,
-        gender
+        gender,
+        hidden,
+        undeletable,
     }) => {  
 
     const navigate = useNavigate();
@@ -80,6 +83,11 @@ const PostWidget = ({
     
 
     const patchDisLike = async () => {
+
+        
+        if(dislikeCount+1 > 10){
+            patchHidden();
+        }
         const response = await fetch(`/api/posts/${postId}/dislike`,{
         method: "PATCH",
         headers: {
@@ -91,6 +99,23 @@ const PostWidget = ({
         const updatedPost = await response.json();
         dispatch(addPost({ post: updatedPost }));
     };
+
+    const patchHidden = async () => {
+        const response = await fetch(`http://localhost:3001/api/posts/${postId}/hidden`,{
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({idx : postUserId}),
+       
+        });
+        const updatedPost = await response.json();
+        dispatch(addPost({ post: updatedPost }));
+        
+        {!yeni ?
+        dispatch(fetchPosts()) :
+        dispatch(fetchPostsN())
+    }};
     
 
     const handleShareClick = () => {
