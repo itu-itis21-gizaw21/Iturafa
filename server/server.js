@@ -62,8 +62,8 @@ app.post('/api/posts', async (req, res) => {
 
 //GET ALL POSTS
   app.get('/api/posts', async (req, res) => {
-  await Post.updateMany({ hidden: { $exists: false } }, { $set: { hidden: false } });
-  await Post.updateMany({ undeletable: { $exists: false } }, { $set: { undeletable: false } });
+  //await Post.updateMany({ hidden: { $exists: false } }, { $set: { hidden: false } });
+  //await Post.updateMany({ undeletable: { $exists: false } }, { $set: { undeletable: false } });
 
     try{
         const posts = await Post.find({hidden: false}).sort({createdAt: -1});
