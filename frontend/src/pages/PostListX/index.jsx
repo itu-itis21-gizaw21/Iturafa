@@ -94,7 +94,7 @@ const PostListX = (props) => {
             description={description}
             createdAt={createdAt}
             likes={likes}
-            dislikes={dislikes || null}
+            dislikes={dislikes || []}
             comments={comments} 
             isSingle={false}
             yeni={yeni || false}
