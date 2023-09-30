@@ -31,7 +31,7 @@ function App(props) {
       <Route path="/y/:postId" element={<SinglePost myVariable={myVariable}/>} />
       <Route path="/notification/user/:postUserId" element={<Notification myVariable={myVariable}/>} />
       <Route path="/new" element={<New myVariable={myVariable}/>} />
-      <Route path="/hidden" element={<Hidden myVariable={myVariable}/>} />
+      <Route path="/hiddenposts" element={<Hidden myVariable={myVariable}/>} />
 
     </Routes>
     </ThemeProvider>
