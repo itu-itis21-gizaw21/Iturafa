@@ -85,7 +85,7 @@ const PostWidget = ({
     const patchDisLike = async () => {
 
         
-        if(dislikeCount+1 > 10){
+        if(dislikeCount+1 > 10 && dislikeCount + 1 >= likeCount * 2){
             patchHidden();
         }
         const response = await fetch(`/api/posts/${postId}/dislike`,{
