@@ -101,7 +101,7 @@ const PostWidget = ({
     };
 
     const patchHidden = async () => {
-        const response = await fetch(`http://localhost:3001/api/posts/${postId}/hidden`,{
+        const response = await fetch(`/api/posts/${postId}/hidden`,{
         method: "PATCH",
         headers: {
             "Content-Type": "application/json",
