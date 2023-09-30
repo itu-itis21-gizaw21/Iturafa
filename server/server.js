@@ -237,6 +237,30 @@ app.patch("/api/posts/:id/undeletable", async (req, res) => {
       res.status(404).json({message: error.message});
   }
 })
+
+// UNDO UNDELETABLE
+app.patch("/api/posts/:id/undoundeletable", async (req, res) => {
+
+  try{
+      const  postId  = req.params.id;
+      const { idx }  = req.body;
+      const post = await Post.findById(postId);
+      const undeletable = post.undeletable;
+    
+      post.undeletable = false;
+      post.hidden = true;
+      const updatedPost = await Post.findByIdAndUpdate(
+          postId,
+          { undeletable: post.undeletable , 
+           hidden: post.hidden},
+          { new: true }
+      );
+      res.status(200).json(updatedPost);
+  }
+  catch(error){
+      res.status(404).json({message: error.message});
+  }
+})
 //DISLIKE A POST
 app.patch("/api/posts/:id/dislike", async (req, res) => {
   try{
