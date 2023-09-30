@@ -59,11 +59,14 @@ app.post('/api/posts', async (req, res) => {
 }
 });
 
+
 //GET ALL POSTS
 app.get('/api/posts', async (req, res) => {
+  await Post.updateMany({ hidden: { $exists: false } }, { $set: { hidden: false } });
+  await Post.updateMany({ undeletable: { $exists: false } }, { $set: { undeletable: false } });
 
     try{
-        const posts = await Post.find().sort({createdAt: -1});
+        const posts = await Post.find({hidden: false}).sort({createdAt: -1});
         res.status(200).json(posts);
     }
     catch(error){
@@ -71,10 +74,11 @@ app.get('/api/posts', async (req, res) => {
     }
 });
 
+//GET NEW POSTS
 app.get('/api/posts/new', async (req, res) => {
 
   try{
-      const posts = await Post.find({ yeni: true }).sort({createdAt: -1});
+      const posts = await Post.find({ yeni: true, hidden:false }).sort({createdAt: -1});
       res.status(200).json(posts);
   }
   catch(error){
@@ -82,6 +86,17 @@ app.get('/api/posts/new', async (req, res) => {
   }
 });
 
+//GET HIDDEN POSTS    
+app.get('/api/posts/hidden', async (req, res) => {
+
+  try{
+      const posts = await Post.find({ hidden:true }).sort({createdAt: -1});
+      res.status(200).json(posts);
+  }
+  catch(error){
+      res.status(404).json({message: error.message});
+  }
+});
 //GET A SINGLE POST
 app.get('/api/posts/:id', async (req, res) => {
     try{
@@ -94,7 +109,7 @@ app.get('/api/posts/:id', async (req, res) => {
 });
 
 //DELETE ALL POSTS
-app.delete('/api/posts', async (req, res) => {
+app.delete('/xapi/posts', async (req, res) => {
 
     try {
         const deletedPosts = await Post.deleteMany();
@@ -108,7 +123,7 @@ app.delete('/api/posts', async (req, res) => {
 });
 
 // DELETE A SINGLE POST
-app.delete('/api/posts/:id', async (req, res) => {
+app.delete('/xapi/posts/:id', async (req, res) => {
     try {
         const postId = req.params.id;
         const deletedPost = await Post.findByIdAndDelete(postId);
