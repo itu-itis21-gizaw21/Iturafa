@@ -43,6 +43,8 @@ const SinglePost = (props) => {
                 dislikes={selectedPost?.dislikes || [{}]}
                 comments={selectedPost.comments} 
                 isSingle = {true}
+                hidden={selectedPost.hidden || false}
+                undeletable={selectedPost.undeletable || false}
             />
           
           <Box sx={{ margin: "1.5rem auto"}} border="1px solid #00D5FA" width="80%" height="50%">
