@@ -1,6 +1,6 @@
 import React from 'react';
 import PostForm from '../PostForm';
-import PostListY from '../PostListX';
+import PostListY from '../PostListY';
 import NavBar from '../NavBar';
 import { useState } from 'react';
 import { Divider } from '@mui/material';
