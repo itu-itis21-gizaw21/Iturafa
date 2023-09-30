@@ -15,7 +15,6 @@ const New = (props) => {
     <div className="App">
     
       <NavBar myVariable={myVariable} newx={true}/> 
-      <PostForm myVariable={myVariable} pcheck={true}/> {/* Component for creating new posts */}
       <Box sx={{ margin: "1.5rem auto"}} borderBottom="2px solid #00D5FA" width= {isNonMobileScreen ? "55%": "95%"} height="50%" ></Box>
       <PostListY myVariable={myVariable} /> {/* Component for displaying posts */}
       <Box sx={{ margin: "3rem"}} border="1px solid transparent" height="50%" ></Box>
