@@ -187,7 +187,7 @@ const PostWidget = ({
                         </IconButton>
                         <Typography>{likeCount}</Typography>
                     </Box>
-{/*
+
                     <Box  display="flex" alignItems="center">
                         <IconButton onClick={patchDisLike}>
                         {isDisLiked ? (
@@ -198,7 +198,7 @@ const PostWidget = ({
                         </IconButton>
                         <Typography>{dislikeCount}</Typography>
                     </Box>
-*/}
+
                     </FlexBetween>
                     </Box>
 
