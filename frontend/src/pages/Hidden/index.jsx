@@ -7,7 +7,7 @@ import { Divider } from '@mui/material';
 import { Box, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
-const New = (props) => {
+const Hidden = (props) => {
 
   const { myVariable } = props;
   const isNonMobileScreen = useMediaQuery("(min-width: 1000px)");
@@ -22,4 +22,4 @@ const New = (props) => {
   );
 }
 
-export default New;
+export default Hidden;
