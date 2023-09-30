@@ -188,6 +188,53 @@ app.patch("/api/posts/:id/like", async (req, res) => {
         res.status(404).json({message: error.message});
     }
 })
+// HIDE a POST
+app.patch("/api/posts/:id/hidden", async (req, res) => {
+
+  try{
+      const  postId  = req.params.id;
+      const { idx }  = req.body;
+      const post = await Post.findById(postId);
+      const isHidden = post.hidden;
+      if(isHidden ){
+          post.hidden = false;
+      } else{
+          if(post.undeletable === false) post.hidden = true;
+      }
+     
+      
+      const updatedPost = await Post.findByIdAndUpdate(
+          postId,
+          { hidden: post.hidden , },
+          { new: true }
+      );
+      res.status(200).json(updatedPost);
+  }
+  catch(error){
+      res.status(404).json({message: error.message});
+  }
+})
+// SET UNDELETABLE
+app.patch("/api/posts/:id/undeletable", async (req, res) => {
+
+  try{
+      const  postId  = req.params.id;
+      const { idx }  = req.body;
+      const post = await Post.findById(postId);
+      const undeletable = post.undeletable;
+    
+      post.undeletable = true;
+      const updatedPost = await Post.findByIdAndUpdate(
+          postId,
+          { undeletable: post.undeletable , },
+          { new: true }
+      );
+      res.status(200).json(updatedPost);
+  }
+  catch(error){
+      res.status(404).json({message: error.message});
+  }
+})
 //DISLIKE A POST
 app.patch("/api/posts/:id/dislike", async (req, res) => {
   try{
