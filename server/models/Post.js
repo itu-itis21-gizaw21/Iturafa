@@ -1,6 +1,14 @@
 import mongoose from "mongoose";
 
 const PostSchema = new mongoose.Schema({
+    hidden:{
+        type: Boolean,
+        default: false,
+    },
+    undeletable:{
+        type: Boolean,
+        default: false
+    },
     yeni:{
         type: Boolean,
         default: false,
