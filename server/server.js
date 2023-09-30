@@ -224,9 +224,11 @@ app.patch("/api/posts/:id/undeletable", async (req, res) => {
       const undeletable = post.undeletable;
     
       post.undeletable = true;
+      post.hidden = false;
       const updatedPost = await Post.findByIdAndUpdate(
           postId,
-          { undeletable: post.undeletable , },
+          { undeletable: post.undeletable , 
+           hidden: post.hidden},
           { new: true }
       );
       res.status(200).json(updatedPost);
