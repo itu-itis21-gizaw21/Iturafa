@@ -175,19 +175,18 @@ const PostWidget = ({
     return (
             <WidgetWrapper p="0.7rem 0.7rem 0rem 0.7rem !important" width= {isNonMobileScreen ? "50%": "90%"} m="0rem auto 0.2rem auto" style={{border:"0.1px dotted #00D5FA", borderBottom:"0.1px dotted #00D5FA" }} >
             <Box>
-            <Box>
-           {/*  <IconButton onClick={() => navigate(-1)} sx={{
-                        display: "block",
-                      
-                    }}>
-                        <ArrowBackOutlined />
-                    </IconButton> */}
+              <Box>
+                {isSingle &&
+               <IconButton onClick={() => navigate(-2)} display="block" color="primary" padding='2rem' >
+                        <ArrowBackOutlined style={{ transform: 'scale(1.3)', borderRadius:"50%",border:"1px solid yellow"}} />
+                </IconButton>}
                 <FlexBetween style={{padding:"0.4rem 0.9rem", borderRadius:"0.5rem", backgroundColor: palette.neutral.light}}>
+                    
+                   
                     <Typography variant="h5" fontWeight="500" >{yeni && "🟢 "} {gender == "kiz" && "🟣"}{gender == "erkek" && "🔴"} { name}</Typography>
                     <Typography color={main} variant="h5">{formatDate(new Date(createdAt))}</Typography>
                 </FlexBetween>
-            </Box>
-
+                </Box>
             <Box>
                 <Typography  variant="h5" sx={{ mt: "1rem",wordWrap: "break-word"  }}>{description}</Typography>
             </Box>
