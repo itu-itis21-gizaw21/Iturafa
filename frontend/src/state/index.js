@@ -51,5 +51,15 @@ export const fetchPostsN = () => async (dispatch) => {
     }
 };
 
+export const fetchPostsH = () => async (dispatch) => {
+    try {
+        const response = await fetch("/api/posts/hidden");
+        const posts = await response.json();
+        dispatch(setPosts({ posts }));
+    } catch (error) {
+        console.error("Error fetching posts:", error);
+    }
+};
+
 export const { setPosts, setPost, addPost, setMode } = postSlice.actions;
 export default postSlice.reducer
