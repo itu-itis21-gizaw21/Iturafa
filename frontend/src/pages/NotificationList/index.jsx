@@ -37,7 +37,7 @@ const NotificationList = ({
       backgroundColor = {neutralLight}
     >
       <Link
-        to={`/x/${postId}`}
+        to={`/y/${postId}`}
         style={{
           textDecoration: 'none',
           color: 'inherit',
