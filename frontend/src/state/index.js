@@ -28,23 +28,23 @@ export const postSlice = createSlice({
               });
               state.posts = updatedPosts;
             },
+          
+
+          addPostL: (state, action) => {
+            const updatedPost = action.payload.post;
+          
+            // Find the index of the post to update in the existing array
+            const index = state.posts.findIndex(post => post?._id === updatedPost?._id);
+          
+            if (index !== -1) {
+              // If the post is found, update only that post in the array
+              state.posts[index] = updatedPost;
+            } else {
+              // If the post is not found, it's a new post, so add it to the array
+              state.posts.push(updatedPost);
+            }
           },
-
-        addPostL: (state, action) => {
-          const updatedPost = action.payload.post;
-        
-          // Find the index of the post to update in the existing array
-          const index = state.posts.findIndex(post => post?._id === updatedPost?._id);
-        
-          if (index !== -1) {
-            // If the post is found, update only that post in the array
-            state.posts[index] = updatedPost;
-          } else {
-            // If the post is not found, it's a new post, so add it to the array
-            state.posts.push(updatedPost);
-          }
-        },
-
+    },
 });
 
 export const fetchPosts = () => async (dispatch) => {
