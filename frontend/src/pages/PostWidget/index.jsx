@@ -23,7 +23,7 @@ import FlexBetween from "components/FlexBetween";
 import WidgetWrapper from "components/WidgetWrapper";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import { addPost } from "state";
+import { addPost, addPostL } from "state";
 import CommentForm from "pages/CommentForm";
 import { Navigate, useNavigate, useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -97,7 +97,7 @@ const PostWidget = ({
        
         });
         const updatedPost = await response.json();
-        dispatch(addPost({ post: updatedPost }));
+        dispatch(addPostL({ post: updatedPost }));
     };
 
     const patchHidden = async () => {
