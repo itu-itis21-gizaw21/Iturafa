@@ -19,7 +19,8 @@ import {
     IconButton,
     Typography, 
     Divider, 
-    useTheme 
+    useTheme,
+    CircularProgress
 } from "@mui/material";
 
 const PostList = (props) => {
@@ -39,7 +40,7 @@ const PostList = (props) => {
     const loggedInUserId = myVariable
    
 
-
+    const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(1);
     const handleScroll = () => {
 
@@ -51,13 +52,23 @@ const PostList = (props) => {
 
 
     
-      useEffect(() => {
-        dispatch(fetchPosts(page));
-        window.addEventListener("scroll", handleScroll);
-        return () => {
-          window.removeEventListener("scroll", handleScroll);
-        };
-      }, [page]);
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          setLoading(true);
+          await dispatch(fetchPosts(page));
+        } finally {
+          setLoading(false);
+        }
+      };
+  
+      fetchData();
+  
+      window.addEventListener("scroll", handleScroll);
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }, [page, dispatch]);
 
 
    const formatDate = (date) => {
@@ -120,6 +131,11 @@ const PostList = (props) => {
             yeni={yeni || false}
             gender={gender || ""}
         />)
+        )}
+        {loading && (
+        <Box display="flex" justifyContent="center" my={3}>
+          <CircularProgress />
+        </Box>
         )}
         </>
   );
