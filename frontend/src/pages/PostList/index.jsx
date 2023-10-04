@@ -40,9 +40,25 @@ const PostList = (props) => {
    
 
 
-    useEffect(() => {
-        dispatch(fetchPosts());
-    }, [dispatch]);
+    const [page, setPage] = useState(1);
+    const handleScroll = () => {
+
+        if (window.innerHeight + document.documentElement.scrollTop + 1 >=
+            document.documentElement.scrollHeight) {
+                setPage((prev) => prev + 1);
+        }
+    }
+
+
+    
+      useEffect(() => {
+        dispatch(fetchPosts(page));
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+          window.removeEventListener("scroll", handleScroll);
+        };
+      }, [page]);
+
 
    const formatDate = (date) => {
         const day = date.getDate();
