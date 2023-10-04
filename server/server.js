@@ -61,18 +61,24 @@ app.post('/api/posts', async (req, res) => {
 
 
 //GET ALL POSTS
-  app.get('/api/posts', async (req, res) => {
+
+app.get('/api/posts', async (req, res) => {
   //await Post.updateMany({ hidden: { $exists: false } }, { $set: { hidden: false } });
   //await Post.updateMany({ undeletable: { $exists: false } }, { $set: { undeletable: false } });
+  const page = req.query.page || 1;
+  const pageSize = page * 10; // Adjust the page size as needed
 
-    try{
-        const posts = await Post.find({hidden: false}).sort({createdAt: -1});
-        res.status(200).json(posts);
-    }
-    catch(error){
-        res.status(404).json({message: error.message});
-    }
+  try {
+      const posts = await Post.find({ hidden: false })
+          .sort({ createdAt: -1 })
+          .limit(pageSize);
+
+      res.status(200).json(posts);
+  } catch (error) {
+      res.status(404).json({ message: error.message });
+  }
 });
+
 
 //GET NEW POSTS
 app.get('/api/posts/new', async (req, res) => {
@@ -107,6 +113,8 @@ app.get('/api/posts/:id', async (req, res) => {
         res.status(404).json({message: error.message});
     }
 });
+
+
 
 //DELETE ALL POSTS
 app.delete('/xapi/posts', async (req, res) => {
