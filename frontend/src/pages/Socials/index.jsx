@@ -39,7 +39,7 @@ const Socials = () => {
         rel="noopener noreferrer"
       >
         <TwitterIcon style={iconStyle} />
-        <Typography>Twitter'da bizi takip edin</Typography>
+        <Typography>Twitter'da İTURAF'i takip edin</Typography>
       </Button>
     </Box>
   );
