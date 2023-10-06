@@ -96,6 +96,12 @@ const PostForm = (props) => {
             return;
         }
 
+         if (amharicPattern.test(username)) {
+            // If the description contains Amharic letters, don't post
+            console.log("Post contains Amharic letters. Not posting.");
+            return;
+        }
+
        const newPost ={
             "postUserId": myVariable,
             "userName": username,
