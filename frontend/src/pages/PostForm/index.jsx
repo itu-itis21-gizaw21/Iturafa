@@ -89,6 +89,12 @@ const PostForm = (props) => {
 
 
         if (description.trim() === "" || username.trim() === "" || username.trim().length < 2 || description.trim().length < 10) return;
+        const amharicPattern = /[\u1200-\u137F\u1000-\u109F]/; // This regex matches Amharic characters
+        if (amharicPattern.test(description)) {
+            // If the description contains Amharic letters, don't post
+            console.log("Post contains Amharic letters. Not posting.");
+            return;
+        }
 
        const newPost ={
             "postUserId": myVariable,
