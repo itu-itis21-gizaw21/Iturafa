@@ -113,6 +113,17 @@ const PostForm = (props) => {
         return;
         }
 
+         const otPattern1 = / 0t /i; // The "i" flag makes the search case-insensitive
+        if (otPattern1.test(description)) {
+        // If the description contains " ot " with one space before and after, don't post
+        return;
+        }
+
+          if (otPattern1.test(username)) {
+        // If the description contains " ot " with one space before and after, don't post
+        return;
+        }
+
        const newPost ={
             "postUserId": myVariable,
             "userName": username,
