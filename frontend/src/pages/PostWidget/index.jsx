@@ -184,7 +184,11 @@ const PostWidget = ({
                 <FlexBetween style={{padding:"0.4rem 0.9rem", borderRadius:"0.5rem", backgroundColor: palette.neutral.light}}>
                     
                    
-                    <Typography variant="h5" fontWeight="500" >{yeni && "🟢 "} {gender == "kiz" && "🟣"}{gender == "erkek" && "🔴"} { name}</Typography>
+                    <Typography variant="h5" fontWeight="500" style={{
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+      whiteSpace: "nowrap",
+    }}>{yeni && "🟢 "} {gender == "kiz" && "🟣"}{gender == "erkek" && "🔴"} { name}</Typography>
                     <Typography color={main} variant="h5">{formatDate(new Date(createdAt))}</Typography>
                 </FlexBetween>
                 </Box>
