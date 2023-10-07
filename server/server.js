@@ -32,7 +32,7 @@ app.use(cors());
 
 
 //POST A SINGLE POST
-app.post('/api/postsxs', async (req, res) => {
+app.post('/api/posts', async (req, res) => {
     const userName = req.body.userName;
     const description = req.body.description;
     const createdAt = req.body.createdAt;
@@ -61,8 +61,9 @@ app.post('/api/postsxs', async (req, res) => {
 
 
 //GET ALL POSTS
+
 app.get('/api/posts', async (req, res) => {
- //await Post.updateMany({ hidden: { $exists: false } }, { $set: { hidden: false } });
+  //await Post.updateMany({ hidden: { $exists: false } }, { $set: { hidden: false } });
   //await Post.updateMany({ undeletable: { $exists: false } }, { $set: { undeletable: false } });
   const page = req.query.page || 1;
   const pageSize = page * 9; // Adjust the page size as needed
@@ -77,7 +78,6 @@ app.get('/api/posts', async (req, res) => {
       res.status(404).json({ message: error.message });
   }
 });
-
 
 
 //GET NEW POSTS
