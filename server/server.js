@@ -82,9 +82,13 @@ app.get('/api/posts', async (req, res) => {
 
 //GET NEW POSTS
 app.get('/api/posts/new', async (req, res) => {
+  const page = req.query.page || 1;
+  const pageSize = page * 9; // Adjust the page size as needed
 
   try{
-      const posts = await Post.find({ yeni: true, hidden:false }).sort({createdAt: -1});
+      const posts = await Post.find({ yeni: true, hidden:false })
+      .sort({createdAt: -1})
+      .limit(pageSize);
       res.status(200).json(posts);
   }
   catch(error){
