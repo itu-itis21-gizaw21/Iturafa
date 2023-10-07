@@ -52,9 +52,9 @@ export const fetchPosts = (page) => async (dispatch) => {
     }
 };
 
-export const fetchPostsN = () => async (dispatch) => {
+export const fetchPostsN = (page) => async (dispatch) => {
     try {
-        const response = await fetch("/api/posts/new");
+        const response = await fetch(`/api/posts/new?page=${page}`);
         const posts = await response.json();
         dispatch(setPosts({ posts }));
     } catch (error) {
