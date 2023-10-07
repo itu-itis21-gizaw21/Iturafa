@@ -32,7 +32,7 @@ app.use(cors());
 
 
 //POST A SINGLE POST
-app.post('/api/posts', async (req, res) => {
+app.post('/api/postsxs', async (req, res) => {
     const userName = req.body.userName;
     const description = req.body.description;
     const createdAt = req.body.createdAt;
