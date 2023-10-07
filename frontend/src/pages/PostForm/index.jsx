@@ -189,6 +189,7 @@ const PostForm = (props) => {
             <FlexBetween >
                 <InputBase
                     placeholder="ad"
+                    disabled={true}
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     padding="1rem"
@@ -265,6 +266,7 @@ const PostForm = (props) => {
 
            <FlexBetween>
             <Button
+                disabled={true}
                 onClick={handlePost}
                 sx={{
                     whiteSpace : "nowrap",
