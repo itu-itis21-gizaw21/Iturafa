@@ -62,15 +62,18 @@ app.post('/api/posts', async (req, res) => {
 
 //GET ALL POSTS
 
+
 app.get('/api/posts', async (req, res) => {
-  //await Post.updateMany({ hidden: { $exists: false } }, { $set: { hidden: false } });
+ //await Post.updateMany({ hidden: { $exists: false } }, { $set: { hidden: false } });
   //await Post.updateMany({ undeletable: { $exists: false } }, { $set: { undeletable: false } });
+
   const page = req.query.page || 1;
-  const pageSize = page * 9; // Adjust the page size as needed
+  const pageSize = page * 4; // Adjust the page size as needed
 
   try {
       const posts = await Post.find({ hidden: false })
           .sort({ createdAt: -1 })
+          .skip((page - 1) * pageSize)
           .limit(pageSize);
 
       res.status(200).json(posts);
