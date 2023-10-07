@@ -177,10 +177,10 @@ const PostWidget = ({
             <WidgetWrapper p="0.7rem 0.7rem 0rem 0.7rem !important" width= {isNonMobileScreen ? "50%": "90%"} m="0rem auto 0.2rem auto" style={{border:"0.1px dotted #00D5FA", borderBottom:"0.1px dotted #00D5FA" }} >
             <Box>
               <Box>
-                {/*isSingle &&
-               <IconButton onClick={() => navigate(-2)} display="block" color="primary" padding='2rem' >
+                {isSingle &&
+               <IconButton onClick={() => navigate(-1)} display="block" color="primary" padding='2rem' >
                         <ArrowBackOutlined style={{ transform: 'scale(1.3)', borderRadius:"50%",border:"1px solid yellow"}} />
-                </IconButton>*/}
+                </IconButton>}
                 <FlexBetween style={{padding:"0.4rem 0.9rem", borderRadius:"0.5rem", backgroundColor: palette.neutral.light}}>
                     
                    
