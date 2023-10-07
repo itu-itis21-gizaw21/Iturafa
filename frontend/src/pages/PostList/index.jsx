@@ -97,7 +97,7 @@ const PostList = (props) => {
       }
     
 
-     fetchPosts();
+    
       return(
         <>
         {
