@@ -42,15 +42,27 @@ export const postSlice = createSlice({
     },
 });
 
-export const fetchPosts = (page) => async (dispatch) => {
+export const fetchPosts = (page) => async (dispatch, getState) => {
     try {
-        const response = await fetch(`/api/posts?page=${page}`);
-        const posts = await response.json();
-        dispatch(setPosts({ posts }));
+      const response = await fetch(`/api/posts?page=${page}`);
+      const newPosts = await response.json();
+  
+      // Check if newPosts is empty
+      if (newPosts.length === 0) {
+        return; // No more posts to load
+      }
+  
+      // Get the current state of posts
+      const currentPosts = getState().posts;
+  
+      // Concatenate the new posts to the existing ones
+      const updatedPosts = [...currentPosts, ...newPosts];
+  
+      dispatch(setPosts({ posts: updatedPosts }));
     } catch (error) {
-        console.error("Error fetching posts:", error);
+      console.error("Error fetching posts:", error);
     }
-};
+  };
 
 export const fetchPostsN = (page) => async (dispatch) => {
     try {
