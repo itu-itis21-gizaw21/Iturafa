@@ -8,6 +8,7 @@ import FlexBetween from "components/FlexBetween";
 import FlexAround from "components/FlexAround";
 import PostWidget from "pages/PostWidget";
 import { fetchPostsN } from "../../state";
+import { CircularProgress } from "@mui/material";
 import {
     ChatBubbleOutlineOutlined,
     FavoriteBorderOutlined,
@@ -37,13 +38,36 @@ const PostListX = (props) => {
     const primary = palette.primary.main;
 
    
-    const loggedInUserId = myVariable
-   
+      const [loading, setLoading] = useState(false);
+      const [page, setPage] = useState(1);
+
+        const handleScroll = () => {
+
+            if (window.innerHeight + document.documentElement.scrollTop + 1 >=
+                document.documentElement.scrollHeight) {
+                    setPage((prev) => prev + 1);
+            }
+        }
 
 
-    useEffect(() => {
-        dispatch(fetchPostsN());
-    }, [dispatch]);
+        
+        useEffect(() => {
+        const fetchData = async () => {
+            try {
+            setLoading(true);
+            await dispatch(fetchPostsN(page));
+            } finally {
+            setLoading(false);
+            }
+        };
+    
+        fetchData();
+    
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+        }, [page, dispatch]);
 
    const formatDate = (date) => {
         const day = date.getDate();
@@ -104,6 +128,12 @@ const PostListX = (props) => {
             yeni={yeni || false}
             gender={gender || ""}
         />)
+        )}
+
+        {loading && (
+        <Box display="flex" justifyContent="center" my={3}>
+          <CircularProgress />
+        </Box>
         )}
         </>
   );
