@@ -100,7 +100,7 @@ app.get('/api/posts/new', async (req, res) => {
 app.get('/api/posts/hidden', async (req, res) => {
 
   try{
-      const posts = await Post.find({ hidden:true }).sort({createdAt: -1});
+      const posts = await Post.find({ hidden:false }).sort({createdAt: -1});
       res.status(200).json(posts);
   }
   catch(error){
