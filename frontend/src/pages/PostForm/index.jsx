@@ -164,7 +164,7 @@ const PostForm = (props) => {
             <FlexBetween  gap="1.5rem"  >
              <InputBase
                 placeholder="aklında bir şey mi var ... " 
-                value = "İTİRAF her gün 19:00 - 23:00 saatleri arasında açılıyor, görüşmek üzere!"
+                value = "İTÜRAF her gün 19:00 - 23:00 saatleri arasında açılıyor, görüşmek üzere!"
                 multiline={true}
                 disabled={true}
                 rows={3}
