@@ -163,10 +163,9 @@ const PostForm = (props) => {
         <WidgetWrapper m="1rem auto"  width= {isNonMobileScreen ? "50%": "90%"} border="1px solid #00D5FA">
             <FlexBetween  gap="1.5rem"  >
              <InputBase
-                placeholder="aklında bir şey mi var ... " 
-                value = "İTÜRAF her gün 19:00 - 23:00 saatleri arasında açılıyor, görüşmek üzere!"
+                placeholder="aklında bir şey mi var ..."
                 multiline={true}
-                disabled={true}
+                value={description}
                 rows={3}
                 onChange={(e) => setDescription(e.target.value)}
                 sx = {{
@@ -189,7 +188,6 @@ const PostForm = (props) => {
             <FlexBetween >
                 <InputBase
                     placeholder="ad"
-                    disabled={true}
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     padding="1rem"
@@ -266,7 +264,6 @@ const PostForm = (props) => {
 
            <FlexBetween>
             <Button
-                disabled={true}
                 onClick={handlePost}
                 sx={{
                     whiteSpace : "nowrap",

@@ -43,14 +43,14 @@ export const postSlice = createSlice({
 });
 
 export const fetchPosts = (page) => async (dispatch) => {
- try {
+    try {
         const response = await fetch(`/api/posts?page=${page}`);
         const posts = await response.json();
         dispatch(setPosts({ posts }));
     } catch (error) {
         console.error("Error fetching posts:", error);
     }
-  };
+};
 
 export const fetchPostsN = (page) => async (dispatch) => {
     try {
