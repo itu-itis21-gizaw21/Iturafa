@@ -163,8 +163,9 @@ const PostForm = (props) => {
         <WidgetWrapper m="1rem auto"  width= {isNonMobileScreen ? "50%": "90%"} border="1px solid #00D5FA">
             <FlexBetween  gap="1.5rem"  >
              <InputBase
-                placeholder="aklında bir şey mi var ..."
+                placeholder="aklında bir şey mi var ... \n İTİRAF her gün 19:00 - 23:00 saatleri arasında açılıyor, görüşmek üzere!"
                 multiline={true}
+                disabled={true}
                 value={description}
                 rows={3}
                 onChange={(e) => setDescription(e.target.value)}
