@@ -167,7 +167,6 @@ const PostForm = (props) => {
                 value = "İTİRAF her gün 19:00 - 23:00 saatleri arasında açılıyor, görüşmek üzere!"
                 multiline={true}
                 disabled={true}
-                value={description}
                 rows={3}
                 onChange={(e) => setDescription(e.target.value)}
                 sx = {{
