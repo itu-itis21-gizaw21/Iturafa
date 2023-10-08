@@ -80,7 +80,7 @@ const NavBar = (props) => {
             color="primary"
             fontSize="1.5rem"
             width = "clamp(16rem, 26rem, 36rem)"
-        > {newx ? "ITU'ye hos geldiniz": "Itiraf değil, Ituraf!"}
+        > {newx ? "ITU'ye hos geldiniz": "İtiraf değil, İtüraf!"}
             {/*
             <TextField 
                 id="outlined-search" 
