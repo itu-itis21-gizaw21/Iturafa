@@ -42,7 +42,7 @@ export const postSlice = createSlice({
     },
 });
 
-export const fetchPosts = (page) => async (dispatch) => {
+export const fetchPosts = (page=1) => async (dispatch) => {
     try {
         const response = await fetch(`/api/posts?page=${page}`);
         const posts = await response.json();
@@ -52,7 +52,7 @@ export const fetchPosts = (page) => async (dispatch) => {
     }
 };
 
-export const fetchPostsN = (page) => async (dispatch) => {
+export const fetchPostsN = (page=1) => async (dispatch) => {
     try {
         const response = await fetch(`/api/posts/new?page=${page}`);
         const posts = await response.json();
