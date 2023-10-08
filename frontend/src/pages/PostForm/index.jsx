@@ -92,9 +92,6 @@ const PostForm = (props) => {
         if(username.trim().length > 70) return;
         if(description.trim().length > 900) return;
 
-        var total_length = len(description)
-        alphabetic_count = sum(c.isalpha() for c in description)
-        if (alphabetic_count / total_length < 0.6) return description;
 
         const amharicPattern = /[\u1200-\u137F\u1000-\u109F]/; // This regex matches Amharic characters
         if (amharicPattern.test(description)) {
