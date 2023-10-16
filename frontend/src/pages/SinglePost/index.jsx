@@ -11,6 +11,9 @@ import { useParams } from "react-router-dom";
 import PostWidget from 'pages/PostWidget';
 import CommentList from 'pages/CommentList';
 import CommentForm from 'pages/CommentForm';
+import { useDispatch } from "react-redux";
+import { fetchPosts } from "../../state";
+
 const SinglePost = (props) => {
 
   const { myVariable } = props;
@@ -18,11 +21,9 @@ const SinglePost = (props) => {
   const [post, setPost] = useState(null);
   const posts = useSelector((state) => state.posts);
   const { postId } = useParams();
-  const isNonMobileScreens = useMediaQuery("(min-width:1000px)");
- 
+  const [page, setPage] = useState(1);
   const selectedPost = posts.find((post) => post._id === postId);
 
-  if (!selectedPost) return null;
   const getPage = async () => {
 
     const response = await fetch(`/api/postspage/${postId}`, {
@@ -44,6 +45,28 @@ const SinglePost = (props) => {
     console.log(err);
   });
 
+  console.log("yyy");
+  getPage().then((data) => {
+    setPage(data); 
+    //setPost(data);
+  }).catch((err) => {
+    console.log(err);
+  });
+  //console.log(getPage());
+  console.log("pages", page);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        await dispatch(fetchPosts(page));
+      } finally {
+      }
+    };
+
+    fetchData();
+  }, [page, dispatch]);
+  
+  if (!selectedPost) return null;
   return (
     <div className="App">
     
