@@ -158,7 +158,7 @@ app.get('/api/posts/:id', async (req, res) => {
 
 app.get('/api/postspage/:id', async (req, res) => {
   try{
-      const postsx = await Post.find()
+      const postsx = await Post.find({ hidden: false })
         .sort({ createdAt: -1 })
         .limit(1);
       let opx = postsx[0].numbers; 
