@@ -85,6 +85,7 @@ app.patch('/api/uposts', async (req, res) => {
        const posts = await Post.find()
           
       const postsx = await Post.find()
+           .sort({ createdAt: -1 })
            .limit(1);
         let op = postsx[0].numbers;
        /*
