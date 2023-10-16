@@ -38,16 +38,16 @@ const SinglePost = (props) => {
     return data;
   }
 
-
- 
-  const dispatch = useDispatch();
-  
-  useEffect(() => {
-      getPage().then((data) => {
+   getPage().then((data) => {
       setPage(data); 
       }).catch((err) => {
         console.log(err);
       });
+ 
+  const dispatch = useDispatch();
+  
+  useEffect(() => {
+     
     const fetchData = async () => {
       try {
         await dispatch(fetchPosts(page));
