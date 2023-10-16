@@ -56,7 +56,7 @@ const SinglePost = (props) => {
     };
 
     fetchData();
-  }, []);
+  }, [page, dispatch]);
 
   const posts = useSelector((state) => state.posts);
   const selectedPost = posts.find((post) => post._id === postId);
