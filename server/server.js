@@ -90,14 +90,14 @@ app.patch('/api/uposts', async (req, res) => {
         let op = postsx[0].numbers;
         let ct = 1;
         for (const post of posts) {
-     
+          const numbers =ct;
+          post.numbers = numbers;
+          await post.save();
             ct++;
           }
          let cx = ct - 1;
         for (const post of posts) {
-          const numbers =cx;
-          post.numbers = numbers;
-          await post.save();
+         
           cx--;
         }
  
