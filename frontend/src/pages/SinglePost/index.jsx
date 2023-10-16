@@ -63,7 +63,7 @@ const SinglePost = (props) => {
     };
 
     fetchData();
-  }, [page, dispatch]);
+  }, []);
   const selectedPost = posts.find((post) => post._id === postId);
   if (!selectedPost) return null;
   return (
