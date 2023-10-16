@@ -23,7 +23,26 @@ const SinglePost = (props) => {
   const selectedPost = posts.find((post) => post._id === postId);
 
   if (!selectedPost) return null;
+  const getPage = async () => {
 
+    const response = await fetch(`http://localhost:3001/api/postspage/${postId}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+
+    });
+
+    const data = await response.json();
+    return data;
+  }
+  console.log("yyy");
+  getPage().then((data) => {
+    console.log(data);
+    //setPost(data);
+  }).catch((err) => {
+    console.log(err);
+  });
 
   return (
     <div className="App">
