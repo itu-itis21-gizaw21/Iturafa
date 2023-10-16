@@ -34,7 +34,7 @@ app.use(cors());
 //POST A SINGLE POST
 app.post('/api/posts', async (req, res) => {
 
-      const postsx = await Post.find()
+      const postsx = await Post.find({ hidden: false })
           .sort({ createdAt: -1 })
           .limit(1);
     let op = postsx[0].numbers + 1;
