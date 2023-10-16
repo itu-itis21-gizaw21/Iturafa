@@ -166,7 +166,8 @@ app.get('/api/postspage/:id', async (req, res) => {
       const post = await Post.findOne({_id: postId});
       let  op = post.numbers;
       let pageSize = 20;
-      let ret = `opx${opx} op ${op}`;//Math.ceil((opx - op) / pageSize);
+      let ret = Math.ceil((opx - op) / pageSize);
+      if (ret == 0) {ret = 1;}
       res.status(200).json(ret);
   }catch(error){
       res.status(404).json({message: error.message});
