@@ -79,6 +79,36 @@ app.get('/api/posts', async (req, res) => {
   }
 });
 
+app.patch('/api/uposts', async (req, res) => {
+ 
+   try {
+       const posts = await Post.find()
+          
+      const postsx = await Post.find()
+           .sort({ createdAt: -1 })
+           .limit(1);
+        let op = postsx[0].numbers;
+        let ct = 1;
+        for (const post of posts) {
+     
+            ct++;
+          }
+         let cx = ct - 1;
+        for (const post of posts) {
+          const numbers =cx;
+          post.numbers = numbers;
+          await post.save();
+          cx--;
+        }
+ 
+ 
+       res.status(200).json(ct);
+   } catch (error) {
+       res.status(404).json({ message: error.message });
+   }
+ });
+
+
 
 //GET NEW POSTS
 app.get('/api/posts/new', async (req, res) => {
