@@ -24,19 +24,7 @@ const SinglePost = (props) => {
   const { postId } = useParams();
   const [page, setPage] = useState(1);
 
-  const getPage = async () => {
-
-    const response = await fetch(`/api/postspage/${postId}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-
-    });
-
-    const data = await response.json();
-    return data;
-  }
+ 
   const getPage = async () => {
 
     const response = await fetch(`/api/postspage/${postId}`, {
