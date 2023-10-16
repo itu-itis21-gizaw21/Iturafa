@@ -37,29 +37,50 @@ const SinglePost = (props) => {
     const data = await response.json();
     return data;
   }
+  const getPage = async () => {
 
-   getPage().then((data) => {
-      setPage(data); 
-      }).catch((err) => {
-        console.log(err);
-      });
- 
+    const response = await fetch(`/api/postspage/${postId}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+
+    });
+
+    const data = await response.json();
+    return data;
+  }
+  console.log("yyy");
+  getPage().then((data) => {
+    console.log(data);
+    //setPost(data);
+  }).catch((err) => {
+    console.log(err);
+  });
+
+  console.log("yyy");
+  getPage().then((data) => {
+    setPage(data); 
+    //setPost(data);
+  }).catch((err) => {
+    console.log(err);
+  });
+  //console.log(getPage());
+  console.log("pages", page);
   const dispatch = useDispatch();
   
-  useEffect(() => {
-     
-    const fetchData = async () => {
-      try {
-        await dispatch(fetchPosts(page));
+  const fetchData = async () => {
+    try {
+      await dispatch(fetchPosts(page));
       } finally {
       }
     };
 
     fetchData();
-  }, [page, dispatch]);
 
   const posts = useSelector((state) => state.posts);
   const selectedPost = posts.find((post) => post._id === postId);
+
   return (
     <div className="App">
     
