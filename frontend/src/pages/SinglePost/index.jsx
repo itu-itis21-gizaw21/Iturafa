@@ -55,16 +55,16 @@ const SinglePost = (props) => {
   //console.log(getPage());
   console.log("pages", page);
   const dispatch = useDispatch();
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        await dispatch(fetchPosts(page));
+  
+  const fetchData = async () => {
+    try {
+      await dispatch(fetchPosts(page));
       } finally {
       }
     };
 
     fetchData();
-  }, [page, dispatch]);
+
   const posts = useSelector((state) => state.posts);
   const selectedPost = posts.find((post) => post._id === postId);
   if (!selectedPost) return null;
