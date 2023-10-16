@@ -34,6 +34,10 @@ app.use(cors());
 //POST A SINGLE POST
 app.post('/api/posts', async (req, res) => {
 
+      const postsx = await Post.find()
+          .sort({ createdAt: -1 })
+          .limit(1);
+    let op = postsx[0].numbers + 1;
     const userName = req.body.userName;
     const description = req.body.description;
     const createdAt = req.body.createdAt;
@@ -49,7 +53,7 @@ app.post('/api/posts', async (req, res) => {
             createdAt: createdAt,
             yeni: yeni,
             gender: gender,
-            numbers: 219,
+            numbers: op,
         })
         await newPost.save();
         const posts = await Post.find();
