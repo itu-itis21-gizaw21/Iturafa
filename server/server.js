@@ -107,7 +107,7 @@ app.patch('/api/uposts', async (req, res) => {
         }
          
  
-       res.status(200).json(postsx);
+       res.status(200).json(op);
    } catch (error) {
        res.status(404).json({ message: error.message });
    }
