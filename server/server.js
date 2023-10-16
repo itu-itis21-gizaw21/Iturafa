@@ -156,7 +156,22 @@ app.get('/api/posts/:id', async (req, res) => {
     }
 });
 
-
+app.get('/api/postspage/:id', async (req, res) => {
+  try{
+      const postsx = await Post.find()
+        .sort({ createdAt: 1 })
+        .limit(1);
+      let opx = postsx[0].numbers; 
+      const postId = req.params.id;
+      const post = await Post.findOne({_id: postId});
+      let  op = post.numbers;
+      let pageSize = 20;
+      let ret = Math.ceil((opx - op) / pageSize);
+      res.status(200).json(ret);
+  }catch(error){
+      res.status(404).json({message: error.message});
+  }
+});
 
 //DELETE ALL POSTS
 app.delete('/xapi/posts', async (req, res) => {
