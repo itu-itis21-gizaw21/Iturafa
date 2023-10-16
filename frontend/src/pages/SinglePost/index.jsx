@@ -39,17 +39,19 @@ const SinglePost = (props) => {
   }
 
 
-  console.log("yyy");
-  getPage().then((data) => {
-    setPage(data); 
-    //setPost(data);
-  }).catch((err) => {
-    console.log(err);
-  });
+  
   //console.log(getPage());
   console.log("pages", page);
   const dispatch = useDispatch();
   useEffect(() => {
+
+    console.log("yyy");
+    getPage().then((data) => {
+      setPage(data); 
+      //setPost(data);
+    }).catch((err) => {
+      console.log(err);
+    });
     const fetchData = async () => {
       try {
         await dispatch(fetchPosts(page));
