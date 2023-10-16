@@ -82,9 +82,9 @@ app.get('/api/posts', async (req, res) => {
 app.patch('/api/uposts', async (req, res) => {
  
    try {
-       const posts = await Post.find()
+       const posts = await Post.find({ hidden: false })
           
-      const postsx = await Post.find()
+      const postsx = await Post.find({ hidden: false })
            .sort({ createdAt: -1 })
            .limit(1);
         let op = postsx[0].numbers;
