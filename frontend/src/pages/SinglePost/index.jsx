@@ -25,7 +25,7 @@ const SinglePost = (props) => {
   if (!selectedPost) return null;
   const getPage = async () => {
 
-    const response = await fetch(`http://localhost:3001/api/postspage/${postId}`, {
+    const response = await fetch(`/api/postspage/${postId}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
