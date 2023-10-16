@@ -33,6 +33,8 @@ app.use(cors());
 
 //POST A SINGLE POST
 app.post('/api/posts', async (req, res) => {
+
+
      const postsx = await Post.find({ hidden: false })
            .sort({ createdAt: -1 })
            .limit(1);
@@ -51,8 +53,8 @@ app.post('/api/posts', async (req, res) => {
             description: description,
             createdAt: createdAt,
             yeni: yeni,
-            gender: gender
-
+            gender: gender,
+            numbers: op +1
         })
         await newPost.save();
         const posts = await Post.find();
@@ -83,6 +85,7 @@ app.get('/api/posts', async (req, res) => {
   }
 });
 
+/*
 app.patch('/api/uposts', async (req, res) => {
  
    try {
@@ -112,6 +115,7 @@ app.patch('/api/uposts', async (req, res) => {
        res.status(404).json({ message: error.message });
    }
  });
+*/
 
 
 
