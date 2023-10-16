@@ -1,6 +1,11 @@
 import mongoose from "mongoose";
 
 const PostSchema = new mongoose.Schema({
+    number: {
+        type: Number,
+        unique: true,
+        required: true,
+    },
     hidden:{
         type: Boolean,
         default: false,
