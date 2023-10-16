@@ -88,7 +88,7 @@ app.patch('/api/uposts', async (req, res) => {
            .sort({ createdAt: -1 })
            .limit(1);
         let op = postsx[0].numbers;
-       /*
+       
         let ct = 1;
         for (const post of posts) {
           const numbers =ct;
@@ -101,7 +101,7 @@ app.patch('/api/uposts', async (req, res) => {
          
           cx--;
         }
-         */
+         
  
        res.status(200).json(op);
    } catch (error) {
