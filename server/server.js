@@ -33,6 +33,10 @@ app.use(cors());
 
 //POST A SINGLE POST
 app.post('/api/posts', async (req, res) => {
+     const postsx = await Post.find({ hidden: false })
+           .sort({ createdAt: -1 })
+           .limit(1);
+        let op = postsx[0].numbers;
     const userName = req.body.userName;
     const description = req.body.description;
     const createdAt = req.body.createdAt;
@@ -103,7 +107,7 @@ app.patch('/api/uposts', async (req, res) => {
         }
          
  
-       res.status(200).json(postsx);
+       res.status(200).json(op);
    } catch (error) {
        res.status(404).json({ message: error.message });
    }
