@@ -37,18 +37,11 @@ const SinglePost = (props) => {
     const data = await response.json();
     return data;
   }
-  console.log("yyy");
-  getPage().then((data) => {
-    console.log(data);
-    //setPost(data);
-  }).catch((err) => {
-    console.log(err);
-  });
+
 
   console.log("yyy");
   getPage().then((data) => {
     setPage(data); 
-    //setPost(data);
   }).catch((err) => {
     console.log(err);
   });
