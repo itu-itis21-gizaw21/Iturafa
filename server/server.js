@@ -168,7 +168,7 @@ app.get('/api/postspage/:id', async (req, res) => {
       let pageSize = 20;
       let ret = Math.ceil((opx - op) / pageSize);
       if (ret == 0) {ret = 1;}
-      res.status(200).json(ret);
+      res.status(200).json(op);
   }catch(error){
       res.status(404).json({message: error.message});
   }
