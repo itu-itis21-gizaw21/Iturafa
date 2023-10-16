@@ -1,9 +1,8 @@
 import mongoose from "mongoose";
 
 const PostSchema = new mongoose.Schema({
-    number: {
+    numbers: {
         type: Number,
-        unique: true,
         required: true,
     },
     hidden:{
