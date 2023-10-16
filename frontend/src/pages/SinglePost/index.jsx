@@ -24,7 +24,6 @@ const SinglePost = (props) => {
   const { postId } = useParams();
   const [page, setPage] = useState(1);
 
- 
   const getPage = async () => {
 
     const response = await fetch(`/api/postspage/${postId}`, {
@@ -38,13 +37,7 @@ const SinglePost = (props) => {
     const data = await response.json();
     return data;
   }
-  console.log("yyy");
-  getPage().then((data) => {
-    console.log(data);
-    //setPost(data);
-  }).catch((err) => {
-    console.log(err);
-  });
+
 
   console.log("yyy");
   getPage().then((data) => {
@@ -56,19 +49,19 @@ const SinglePost = (props) => {
   //console.log(getPage());
   console.log("pages", page);
   const dispatch = useDispatch();
-  
-  const fetchData = async () => {
-    try {
-      await dispatch(fetchPosts(page));
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        await dispatch(fetchPosts(page));
       } finally {
       }
     };
 
     fetchData();
-
+  }, [page, dispatch]);
   const posts = useSelector((state) => state.posts);
   const selectedPost = posts.find((post) => post._id === postId);
-
+  if (!selectedPost) return null;
   return (
     <div className="App">
     
@@ -101,4 +94,3 @@ const SinglePost = (props) => {
 }
 
 export default SinglePost;
-
