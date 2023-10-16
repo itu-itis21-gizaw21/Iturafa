@@ -19,7 +19,8 @@ const SinglePost = (props) => {
   const { myVariable } = props;
   const isNonMobileScreen = useMediaQuery("(min-width: 1000px)");
   const [post, setPost] = useState(null);
-  const posts = useSelector((state) => state.posts);
+
+  
   const { postId } = useParams();
   const [page, setPage] = useState(1);
 
@@ -63,7 +64,8 @@ const SinglePost = (props) => {
     };
 
     fetchData();
-  }, []);
+  }, [page, dispatch]);
+  const posts = useSelector((state) => state.posts);
   const selectedPost = posts.find((post) => post._id === postId);
   if (!selectedPost) return null;
   return (
