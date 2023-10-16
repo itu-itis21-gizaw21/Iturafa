@@ -233,7 +233,7 @@ const PostWidget = ({
 
 
                     <Box gap="0.3rem"  width="100%" display="flex" alignItems="center">
-                    <Link to={`/x/${postId}`}>
+                    <Link to={`/y/${postId}`}>
                         <IconButton>
                             <ChatBubbleOutlineOutlined />
                         </IconButton>
