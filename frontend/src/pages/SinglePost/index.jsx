@@ -64,7 +64,7 @@ const SinglePost = (props) => {
     };
 
     fetchData();
-  }, [page, dispatch]);
+  }, []);
   
   if (!selectedPost) return null;
   return (
