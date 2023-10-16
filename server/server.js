@@ -33,6 +33,10 @@ app.use(cors());
 
 //POST A SINGLE POST
 app.post('/api/posts', async (req, res) => {
+    const postsx = await Post.find()
+      .sort({ createdAt: 1 })
+      .limit(1);
+    let op = postsx[0].numbers;
     const userName = req.body.userName;
     const description = req.body.description;
     const createdAt = req.body.createdAt;
@@ -107,6 +111,33 @@ app.get('/api/posts/hidden', async (req, res) => {
       res.status(404).json({message: error.message});
   }
 });
+
+app.patch('/api/uposts', async (req, res) => {
+   try {
+      const posts = await Post.find()
+      const postsx = await Post.find()
+           .sort({ createdAt: -1 })
+           .limit(1);
+        let op = postsx[0].numbers;
+        let ct = 1;
+        for (const post of posts) {
+     
+            ct++;
+          }
+         let cx = ct - 1;
+        for (const post of posts) {
+          const numbers =cx;
+          post.numbers = numbers;
+          await post.save();
+          cx--;
+        }
+ 
+ 
+       res.status(200).json(op);
+   } catch (error) {
+       res.status(404).json({ message: error.message });
+   }
+ });
 //GET A SINGLE POST
 app.get('/api/posts/:id', async (req, res) => {
     try{
