@@ -43,10 +43,10 @@ const SinglePost = (props) => {
  /* //console.log(getPage());
   console.log("pages", page);*/
   const dispatch = useDispatch();
-  /*
+  
   useEffect(() => {
     
-    
+    /*
     console.log("yyy");
     getPage().then((data) => {
       setPage(data); 
@@ -61,10 +61,8 @@ const SinglePost = (props) => {
       }
     };
 
-    fetchData();
-
-  }, [page]); */
-   const fetchData = async () => {
+    fetchData();*/
+     const fetchData = async () => {
       try {
         await dispatch(fetchOnePost(postId));
       } finally {
@@ -72,6 +70,9 @@ const SinglePost = (props) => {
     };
 
     fetchData();
+
+  }, []); 
+
   const selectedPost = useSelector((state) => state.posts);
 //  const selectedPost = posts.find((post) => post._id === postId);
   if (!selectedPost) return null;
