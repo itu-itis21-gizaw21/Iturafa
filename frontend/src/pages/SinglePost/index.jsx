@@ -72,8 +72,8 @@ const SinglePost = (props) => {
     };
 
     fetchData();
-  const posts = useSelector((state) => state.posts);
-  const selectedPost = posts.find((post) => post._id === postId);
+  const selectedPost = useSelector((state) => state.posts);
+//  const selectedPost = posts.find((post) => post._id === postId);
   if (!selectedPost) return null;
   return (
     <div className="App">
