@@ -44,7 +44,6 @@ const SinglePost = (props) => {
   const dispatch = useDispatch();
   useEffect(() => {
     
-    let isMounted = true;
     
     console.log("yyy");
     getPage().then((data) => {
@@ -61,9 +60,7 @@ const SinglePost = (props) => {
     };
 
     fetchData();
-     return () => {
-    isMounted = false;
-  };
+
   }, [page]);
   const posts = useSelector((state) => state.posts);
   const selectedPost = posts.find((post) => post._id === postId);
