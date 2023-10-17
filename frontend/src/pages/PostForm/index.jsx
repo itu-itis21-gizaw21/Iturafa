@@ -158,7 +158,7 @@ const PostForm = (props) => {
         const updatedPost = await response.json();
         //console.log(updatedPost);
         dispatch(addPost({ post: updatedPost }));
-        dispatch(fetchPosts());
+        dispatch(fetchPosts(1));
        
         setCheckx(false);
 
