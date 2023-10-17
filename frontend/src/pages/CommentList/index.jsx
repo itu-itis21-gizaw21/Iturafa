@@ -28,7 +28,9 @@ const CommentList = (props) => {
   const dispatch = useDispatch();
   //const posts = useSelector((state) => state.posts);
 
-  const posts = useSelector((state) => state.posts.find(post => post._id === myId));
+  //const posts = useSelector((state) => state.posts.find(post => post._id === myId));
+  const postsx = useSelector((state) => state.posts);
+  const posts = postsx.find((post) => post._id === postId);
  //console.log(posts);
  const commentPost = posts ? posts.comments : [];
 
