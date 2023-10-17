@@ -61,7 +61,15 @@ export const fetchPostsN = (page=1) => async (dispatch) => {
         console.error("Error fetching posts:", error);
     }
 };
-
+export const fetchOnePost = (postId) => async (dispatch, getState) => {
+    try {
+      const response = await fetch(`/api/posts/${postId}`);
+      const posts = await response.json();
+      dispatch(setPosts({ posts }));
+    } catch (error) {
+      console.error("Error fetching posts:", error);
+    }
+};
 export const fetchPostsH = () => async (dispatch) => {
     try {
         const response = await fetch("/api/posts/hidden");
