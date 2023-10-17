@@ -41,8 +41,9 @@ const SinglePost = (props) => {
 
   
  /* //console.log(getPage());
-  console.log("pages", page);
+  console.log("pages", page);*/
   const dispatch = useDispatch();
+  /*
   useEffect(() => {
     
     
