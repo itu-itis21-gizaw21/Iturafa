@@ -87,7 +87,7 @@ const PostForm = (props) => {
    
     const handlePost = async () => {
         const descriptio = description;
-        const username = username;
+        const usernam = username;
         setUsername("");
         setDescription(""); 
         if (descriptio.trim() === "" || usernam.trim() === "" || usernam.trim().length < 2 || descriptio.trim().length < 10) return;
