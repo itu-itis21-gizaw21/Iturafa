@@ -42,9 +42,7 @@ const CommentList = (props) => {
   const main = palette.neutral.main;
   const primary = palette.primary.main;
 
-  //useEffect(() => {
-  //  dispatch(fetchPosts());
-  //}, [dispatch]);
+ 
   const formatDate = (date) => {
     const day = date.getDate();
     const month = date.getMonth() + 1;
