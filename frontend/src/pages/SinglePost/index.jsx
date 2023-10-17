@@ -12,7 +12,7 @@ import PostWidget from 'pages/PostWidget';
 import CommentList from 'pages/CommentList';
 import CommentForm from 'pages/CommentForm';
 import { useDispatch } from "react-redux";
-import { fetchPosts, fetchOnePost } from "../../state";
+import { fetchPosts } from "../../state";
 
 const SinglePost = (props) => {
 
@@ -40,13 +40,12 @@ const SinglePost = (props) => {
 
 
   
- /* //console.log(getPage());
-  console.log("pages", page);*/
+  //console.log(getPage());
+  console.log("pages", page);
   const dispatch = useDispatch();
-  
   useEffect(() => {
     
-    /*
+    
     console.log("yyy");
     getPage().then((data) => {
       setPage(data); 
@@ -61,20 +60,11 @@ const SinglePost = (props) => {
       }
     };
 
-    fetchData();*/
-     const fetchData = async () => {
-      try {
-        await dispatch(fetchOnePost(postId));
-      } finally {
-      }
-    };
-
     fetchData();
 
-  }, []); 
-
-  const selectedPost = useSelector((state) => state.posts);
-//  const selectedPost = posts.find((post) => post._id === postId);
+  }, [page]); 
+  const posts = useSelector((state) => state.posts);
+  const selectedPost = posts.find((post) => post._id === postId);
   if (!selectedPost) return null;
   return (
     <div className="App">
