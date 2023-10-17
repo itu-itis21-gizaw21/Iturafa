@@ -89,7 +89,7 @@ const SinglePost = (props) => {
           <Box sx={{ margin: "1.5rem auto"}} border="1px solid #00D5FA" width="80%" height="50%">
 
           </Box>
-    <CommentList myVariable={myVariable} myId={postId}/>
+      {/*   <CommentList myVariable={myVariable} myId={postId}/> */}
     <Box sx={{ margin: "2rem"}} border="1px solid transparent" height="50%" ></Box>
     </div>
   );
