@@ -47,10 +47,7 @@ const ReplyList = (props) => {
   const main = palette.neutral.main;
   const primary = palette.primary.main;
 
- 
-  useEffect(() => {
-   dispatch(fetchPosts());
-  }, [dispatch]);
+
   
   if(!replies) return;
   const formatDate = (date) => {
