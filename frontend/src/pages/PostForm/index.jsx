@@ -86,57 +86,59 @@ const PostForm = (props) => {
       };
    
     const handlePost = async () => {
-
-
-        if (description.trim() === "" || username.trim() === "" || username.trim().length < 2 || description.trim().length < 10) return;
-        if(username.trim().length > 70) return;
-        if(description.trim().length > 900) return;
-        if(description.length > 300){
-        const totalCharacters = description.length;
-        const alphabeticCharacters = description.replace(/[^a-zA-Z]/g, '').length;
+        const descriptio = description;
+        const username = username;
+        setUsername("");
+        setDescription(""); 
+        if (descriptio.trim() === "" || usernam.trim() === "" || usernam.trim().length < 2 || descriptio.trim().length < 10) return;
+        if(usernam.trim().length > 70) return;
+        if(descriptio.trim().length > 900) return;
+        if(descriptio.length > 300){
+        const totalCharacters = descriptio.length;
+        const alphabeticCharacters = descriptio.replace(/[^a-zA-Z]/g, '').length;
         const isMore = alphabeticCharacters / totalCharacters > 0.7;
         if(!isMore) return;
         }
 
         const amharicPattern = /[\u1200-\u137F\u1000-\u109F]/; // This regex matches Amharic characters
-        if (amharicPattern.test(description)) {
+        if (amharicPattern.test(descriptio)) {
             // If the description contains Amharic letters, don't post
             console.log("Post contains Amharic letters. Not posting.");
             return;
         }
 
-         if (amharicPattern.test(username)) {
+         if (amharicPattern.test(usernam)) {
             // If the description contains Amharic letters, don't post
             console.log("Post contains Amharic letters. Not posting.");
             return;
         }
 
         const otPattern = / ot /i; // The "i" flag makes the search case-insensitive
-        if (otPattern.test(description)) {
+        if (otPattern.test(descriptio)) {
         // If the description contains " ot " with one space before and after, don't post
         return;
         }
 
-          if (otPattern.test(username)) {
+          if (otPattern.test(usernam)) {
         // If the description contains " ot " with one space before and after, don't post
         return;
         }
 
          const otPattern1 = / 0t /i; // The "i" flag makes the search case-insensitive
-        if (otPattern1.test(description)) {
+        if (otPattern1.test(descriptio)) {
         // If the description contains " ot " with one space before and after, don't post
         return;
         }
 
-          if (otPattern1.test(username)) {
+          if (otPattern1.test(usernam)) {
         // If the description contains " ot " with one space before and after, don't post
         return;
         }
 
        const newPost ={
             "postUserId": myVariable,
-            "userName": username,
-            "description": description,
+            "userName": usernam,
+            "description": descriptio,
             "createdAt": new Date().toString(),
             "likes": [],
             "comments": [],
@@ -157,8 +159,7 @@ const PostForm = (props) => {
         //console.log(updatedPost);
         dispatch(addPost({ post: updatedPost }));
         dispatch(fetchPosts());
-        setUsername("");
-        setDescription(""); 
+       
         setCheckx(false);
 
     }
