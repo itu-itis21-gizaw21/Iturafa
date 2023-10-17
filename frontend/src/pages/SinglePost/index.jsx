@@ -18,7 +18,6 @@ const SinglePost = (props) => {
 
   const { myVariable } = props;
   const isNonMobileScreen = useMediaQuery("(min-width: 1000px)");
-  const [post, setPost] = useState(null);
 
   
   const { postId } = useParams();
