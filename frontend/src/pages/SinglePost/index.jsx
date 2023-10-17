@@ -21,7 +21,7 @@ const SinglePost = (props) => {
 
   
   const { postId } = useParams();
-  /*
+  
   const [page, setPage] = useState(1);
 
   const getPage = async () => {
@@ -62,7 +62,7 @@ const SinglePost = (props) => {
 
     fetchData();
 
-  }, [page]); */
+  }, [page]); 
   const posts = useSelector((state) => state.posts);
   const selectedPost = posts.find((post) => post._id === postId);
   if (!selectedPost) return null;
