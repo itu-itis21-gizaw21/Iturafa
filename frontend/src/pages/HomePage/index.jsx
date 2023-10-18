@@ -19,6 +19,16 @@ const HomePage = (props) => {
   const [shouldReload, setShouldReload] = useState(true);
 
   const navigate = useNavigate();
+
+  const mounted = useRef(false);
+
+  useEffect(() => {
+    if (!mounted.current) {
+      mounted.current = true;
+    } else {
+      window.location.reload();
+    }
+  }, []);
 /*
   useEffect(() => {
   if (shouldReload) {
