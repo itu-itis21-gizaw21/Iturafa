@@ -21,7 +21,7 @@ const HomePage = (props) => {
   const navigate = useNavigate();
 
   const mounted = useRef(false);
-   window.location.reload(true);
+  // window.location.reload(true);
 /*
   useEffect(() => {
     const componentDidMount = () => {
