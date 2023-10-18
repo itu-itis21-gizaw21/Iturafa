@@ -104,7 +104,16 @@ const Notification = (props) => {
 
  //LikeNot.sort((a, b) => new Date(b.likedAt) - new Date(a.likedAt));
  //CommentNot.sort((a, b) => new Date(b.commentedAt) - new Date(a.commentedAt));
- 
+  if(!LikeNot && !CommentNot && !ReplyLikeNot && !CommentCommentNot){
+    return (
+      <>
+        <NavBar myVariable={myVariable} not={true} />
+        <div style={{margin: "2rem"}}></div>
+        <Box>Yeni bildiriminiz yok. <br/> Bildirim almak için ituraf edin :) </Box>
+      </>
+    )
+  }
+
 const myDic = new Map();
 LikeNot.forEach((item, index) => {
   if (item.likesCount !== 0) {
