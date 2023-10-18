@@ -35,10 +35,10 @@ const Socials = () => {
         variant="contained"
         style={buttonStyle}
         component="a"
-        href="https://twitter.com/iturafet"
+        href=""
         rel="noopener noreferrer"
       >
-        <TwitterIcon style={iconStyle} />
+        {/* <TwitterIcon style={iconStyle} />*/}
         <Typography>Filistin halkının yanındayız! </Typography>
       </Button>
     </Box>
