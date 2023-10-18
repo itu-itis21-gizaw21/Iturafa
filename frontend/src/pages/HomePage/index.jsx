@@ -21,6 +21,19 @@ const HomePage = (props) => {
   const navigate = useNavigate();
 
   const mounted = useRef(false);
+
+  useEffect(() => {
+    const componentDidMount = () => {
+    const reloadCount = sessionStorage.getItem('reloadCount');
+    if(reloadCount < 2) {
+      sessionStorage.setItem('reloadCount', String(reloadCount + 1));
+      window.location.reload();
+    } else {
+      sessionStorage.removeItem('reloadCount');
+    }
+  }
+    componentDidMount();
+  },[]);
 /*
   useEffect(() => {
     if (!mounted.current) {
