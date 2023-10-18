@@ -21,7 +21,7 @@ const HomePage = (props) => {
   const navigate = useNavigate();
 
   const mounted = useRef(false);
-
+/*
   useEffect(() => {
     const componentDidMount = () => {
     const reloadCount = sessionStorage.getItem('reloadCount');
@@ -33,7 +33,7 @@ const HomePage = (props) => {
     }
   }
     componentDidMount();
-  },[]);
+  },[]);*/
 /*
   useEffect(() => {
     if (!mounted.current) {
