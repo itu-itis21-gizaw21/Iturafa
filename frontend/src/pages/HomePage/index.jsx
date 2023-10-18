@@ -25,7 +25,7 @@ const HomePage = (props) => {
       setShouldReload(false);
       window.location.reload();
     }
-  }, []); 
+  }, [shouldReload]); 
 
   return (
     <div className="App">
