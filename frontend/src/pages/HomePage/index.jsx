@@ -16,16 +16,16 @@ const HomePage = (props) => {
   const { myVariable } = props;
   
   const isNonMobileScreen = useMediaQuery("(min-width: 1000px)");
-  const [shouldReload, setShouldReload] = useState(props.reloadvar);
+  const [shouldReload, setShouldReload] = useState(true);
 
   const navigate = useNavigate();
-
+/*
   useEffect(() => {
   if (shouldReload) {
       setShouldReload(false);
       window.location.reload();
     }
-  }, [shouldReload]); 
+  }, [shouldReload]); */
 
   return (
     <div className="App">
