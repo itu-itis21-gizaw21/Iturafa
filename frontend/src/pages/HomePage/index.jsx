@@ -14,18 +14,18 @@ import Socials from '../Socials';
 const HomePage = (props) => {
 
   const { myVariable } = props;
+  
   const isNonMobileScreen = useMediaQuery("(min-width: 1000px)");
+  const [shouldReload, setShouldReload] = useState(props.reloadvar);
 
   const navigate = useNavigate();
 
   useEffect(() => {
-        let path = window.location.pathname;
-
-        if(path.includes("/x/")){
-          let newPath = path.replace("/x/","/y/");
-          navigate(newPath);
-        }
-      }, [navigate]);
+  if (shouldReload) {
+      setShouldReload(false);
+      window.location.reload();
+    }
+  }, []); 
 
   return (
     <div className="App">
