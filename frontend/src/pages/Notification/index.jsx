@@ -104,7 +104,7 @@ const Notification = (props) => {
 
  //LikeNot.sort((a, b) => new Date(b.likedAt) - new Date(a.likedAt));
  //CommentNot.sort((a, b) => new Date(b.commentedAt) - new Date(a.commentedAt));
-  if(!LikeNot && !CommentNot && !ReplyLikeNot && !CommentCommentNot){
+  if(LikeNot == CommentNot == ReplyLikeNot == CommentCommentNot){
     console.log("Noooooooooooo");
     return (
       <>
