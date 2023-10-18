@@ -8,7 +8,7 @@ import { Box, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import Socials from '../Socials';
 
 const HomePage = (props) => {
