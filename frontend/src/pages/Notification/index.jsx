@@ -95,8 +95,11 @@ const Notification = (props) => {
     getReplyLikeNotification();
   }, [myVariable]);
 
-
+  console.log(LikeNot);
+  console.log(CommentNot);
   console.log(ReplyLikeNot);
+  console.log(CommentCommentNot);
+  
 /*   if (LikeNot.length === 0) return;
   if (CommentNot.length === 0) return;
   if (CommentLikeNot.length === 0) return;
