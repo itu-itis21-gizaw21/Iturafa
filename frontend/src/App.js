@@ -25,7 +25,7 @@ function App(props) {
     <ThemeProvider theme={theme}>
     <CssBaseline />
     <Routes>
-      <Route path="/" element={<HomePage myVariable={myVariable}/>} />
+      <Route path="/" element={<HomePage myVariable={myVariable} reloadvar={true}/>} />
       <Route path="/new/trending" element={<HomePage myVariable={myVariable}/>} />
       <Route path="/x/:postId" element={<HomePage myVariable={myVariable}/>} />
       <Route path="/y/:postId" element={<SinglePost myVariable={myVariable}/>} />
