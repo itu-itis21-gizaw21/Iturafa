@@ -31,15 +31,15 @@ const ReplyList = (props) => {
 
   const posts = useSelector((state) => state.posts.find(post => post._id === myId));
  
-  const replies = posts.comments.map(commentArray => {
+  const replie = posts.comments.map(commentArray => {
     if (commentArray[commentId] && commentArray[commentId]["comments"]) {
       return commentArray[commentId]["comments"];
     } else {
       return [];
     }
   });
- 
-  console.log(replies)
+  const replies = replie.reverse();
+  //console.log(replies)
   const [liked, setLiked] = useState(false);
   const [commented, setCommented] = useState(false);  
 
