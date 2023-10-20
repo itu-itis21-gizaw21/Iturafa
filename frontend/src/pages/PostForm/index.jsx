@@ -113,7 +113,7 @@ const PostForm = (props) => {
             return;
         }
 
-        const otPattern = / ot /i; // The "i" flag makes the search case-insensitive
+        const otPattern = /(^|\s)ot(\s|$)/i;; // The "i" flag makes the search case-insensitive
         if (otPattern.test(descriptio)) {
         // If the description contains " ot " with one space before and after, don't post
         return;
@@ -124,7 +124,7 @@ const PostForm = (props) => {
         return;
         }
 
-         const otPattern1 = / 0t /i; // The "i" flag makes the search case-insensitive
+         const otPattern1 = /(^|\s)0t(\s|$)/i; // The "i" flag makes the search case-insensitive
         if (otPattern1.test(descriptio)) {
         // If the description contains " ot " with one space before and after, don't post
         return;
