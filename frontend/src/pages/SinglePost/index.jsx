@@ -86,9 +86,9 @@ const SinglePost = (props) => {
                 isSingle = {true}
                 hidden={selectedPost.hidden || false}
                 undeletable={selectedPost.undeletable || false}
-                views={views || []}
-                yeni={yeni || false}
-                gender={gender || ""}
+                views={selectedPost.views || []}
+                yeni={selectedPost.yeni || false}
+                gender={selectedPost.gender || ""}
             />
           
           <Box sx={{ margin: "1.5rem auto"}} border="1px solid #00D5FA" width="80%" height="50%">
