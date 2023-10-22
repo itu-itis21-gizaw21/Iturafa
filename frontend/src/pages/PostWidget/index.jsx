@@ -8,6 +8,7 @@ import {
     ArrowBackOutlined,
      VisibilityOutlined,
 } from "@mui/icons-material";
+import SignalCellularAltIcon from '@mui/icons-material/SignalCellularAlt';
 import { Dialog, DialogContent, DialogTitle, Button } from "@mui/material";
 import { Snackbar, SnackbarContent, Alert } from "@mui/material";
 
@@ -232,7 +233,7 @@ const PostWidget = ({
                         
                     <Box mr={isNonMobileScreen?"25%":"10%"} width="100%" display="flex" alignItems="center">
                     <IconButton onClick={patchDisLike}>
-                        <VisibilityOutlined/>
+                        <SignalCellularAltIcon/>
                     </IconButton>
                     <Typography>{viewCount}</Typography>
                     </Box>
