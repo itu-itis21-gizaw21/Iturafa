@@ -229,8 +229,6 @@ const PostWidget = ({
                 <Box gap="0.5rem"  width="100%" display="flex" alignItems="center">
                     <FlexBetween width={isNonMobileScreen?"40% !important":"45% !important"} margin="0em auto 0rem 0rem">
                         
-                    <Box gap="0.5rem"  width="100%" display="flex" alignItems="center">
-                    <FlexBetween width={isNonMobileScreen?"45% !important":"50% !important"} margin="0em auto 0rem 0rem">
                         
                     <Box mr={isNonMobileScreen?"25%":"10%"} width="100%" display="flex" alignItems="center">
                     <IconButton onClick={patchDisLike}>
