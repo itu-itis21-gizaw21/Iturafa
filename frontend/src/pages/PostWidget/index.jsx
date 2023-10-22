@@ -5,7 +5,8 @@ import {
     FavoriteOutlined,
     ThumbDownOutlined,
     ShareOutlined,
-    ArrowBackOutlined
+    ArrowBackOutlined,
+     VisibilityOutlined,
 } from "@mui/icons-material";
 import { Dialog, DialogContent, DialogTitle, Button } from "@mui/material";
 import { Snackbar, SnackbarContent, Alert } from "@mui/material";
@@ -22,7 +23,7 @@ import FlexAround from "components/FlexAround";
 import FlexBetween from "components/FlexBetween";
 import WidgetWrapper from "components/WidgetWrapper";
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { addPost } from "state";
 import { addPostL } from "state";
 import CommentForm from "pages/CommentForm";
@@ -42,6 +43,7 @@ const PostWidget = ({
         comments,
         isSingle,
         yeni,
+        views,
         gender,
         hidden,
         undeletable,
@@ -59,6 +61,7 @@ const PostWidget = ({
         
     const isLiked = Boolean(likes.includes(postUserId)); 
     const likeCount = Object.keys(likes).length; 
+    const viewCount = views ? Object?.keys(views)?.length : 0;
 
     const isDisLiked = dislikes ? Boolean(dislikes?.includes(postUserId)) : false;
     const dislikeCount = dislikes ? Object?.keys(dislikes)?.length : 0;
@@ -82,6 +85,21 @@ const PostWidget = ({
         dispatch(addPostL({ post: updatedPost }));
     };
     
+     const patchCount = async () => {
+
+        const response = await fetch(`http://localhost:3001/api/posts/${postId}/view`,{
+        
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({idx : postUserId}),
+       
+        });
+        const updatedPost = await response.json();
+        dispatch(addPostL({ post: updatedPost }));
+
+    };
 
     const patchDisLike = async () => {
 
@@ -129,6 +147,11 @@ const PostWidget = ({
         setIsDialogOpen(false);
       };
 
+    
+      useEffect(() => {
+        // Call a function to increment the view count
+        patchCount();
+      }, []);
 
     const formatDate = (date) => {
         const now = new Date();
@@ -206,7 +229,17 @@ const PostWidget = ({
                 <Box gap="0.5rem"  width="100%" display="flex" alignItems="center">
                     <FlexBetween width={isNonMobileScreen?"40% !important":"45% !important"} margin="0em auto 0rem 0rem">
                         
-                    <Box   display="flex" alignItems="center">
+                    <Box gap="0.5rem"  width="100%" display="flex" alignItems="center">
+                    <FlexBetween width={isNonMobileScreen?"45% !important":"50% !important"} margin="0em auto 0rem 0rem">
+                        
+                    <Box mr={isNonMobileScreen?"25%":"10%"} width="100%" display="flex" alignItems="center">
+                    <IconButton onClick={patchDisLike}>
+                        <VisibilityOutlined/>
+                    </IconButton>
+                    <Typography>{viewCount}</Typography>
+                    </Box>
+
+                    <Box mr="5%"  display="flex" alignItems="center">
                         <IconButton onClick={patchLike}>
                         {isLiked ? (
                             <FavoriteOutlined sx={{ color: primary }} />
