@@ -84,6 +84,25 @@ app.get('/api/posts', async (req, res) => {
   }
 });
 
+
+
+app.get('/api/postss', async (req, res) => {
+  //await Post.updateMany({ hidden: { $exists: false } }, { $set: { hidden: false } });
+  //await Post.updateMany({ undeletable: { $exists: false } }, { $set: { undeletable: false } });
+  const page = req.query.page || 1;
+  const pageSize = page * 20; // Adjust the page size as needed
+
+  try {
+      const posts = await Post.find({ hidden: false })
+          .sort({ createdAt: -1 })
+          //.limit(pageSize);
+
+      res.status(200).json(posts);
+  } catch (error) {
+      res.status(404).json({ message: error.message });
+  }
+});
+
 /*
 app.patch('/api/uposts', async (req, res) => {
  
@@ -253,6 +272,29 @@ app.patch("/api/posts/:id/like", async (req, res) => {
     catch(error){
         res.status(404).json({message: error.message});
     }
+})
+app.patch("/api/posts/:id/view", async (req, res) => {
+
+  try{
+      const  postId  = req.params.id;
+      const { idx }  = req.body;
+      const post = await Post.findById(postId);
+      const isViewed = post.views.includes(idx);
+      if(!isViewed ){
+        post.views.push(idx);
+      }
+     
+      
+      const updatedPost = await Post.findByIdAndUpdate(
+          postId,
+          { views: post.views  },
+          { new: true }
+      );
+      res.status(200).json(updatedPost);
+  }
+  catch(error){
+      res.status(404).json({message: error.message});
+  }
 })
 // HIDE a POST
 app.patch("/api/posts/:id/hidden", async (req, res) => {
