@@ -113,6 +113,7 @@ const PostList = (props) => {
                     comments,
                     yeni,
                     gender,
+                    views,
                     hidden,
                     undeletable,
         })=> (<PostWidget
@@ -131,6 +132,7 @@ const PostList = (props) => {
             undeletable={undeletable || false}
             yeni={yeni || false}
             gender={gender || ""}
+            views={views || []}
         />)
         )}
         {loading && (
