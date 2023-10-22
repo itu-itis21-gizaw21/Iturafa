@@ -233,7 +233,7 @@ const PostWidget = ({
                         
                     <Box mr={isNonMobileScreen?"25%":"10%"} width="100%" display="flex" alignItems="center">
                     <IconButton onClick={patchDisLike}>
-                        <SignalCellularAltIcon/>
+                        < VisibilityOutlined/>
                     </IconButton>
                     <Typography>{viewCount}</Typography>
                     </Box>
