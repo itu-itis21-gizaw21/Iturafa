@@ -87,7 +87,7 @@ const PostWidget = ({
     
      const patchCount = async () => {
 
-        const response = await fetch(`http://localhost:3001/api/posts/${postId}/view`,{
+        const response = await fetch(`/api/posts/${postId}/view`,{
         
         method: "PATCH",
         headers: {
