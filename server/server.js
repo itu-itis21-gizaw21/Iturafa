@@ -77,7 +77,7 @@ app.get('/api/posts', async (req, res) => {
           .sort({ createdAt: -1 })
           .limit(pageSize);
 
-      res.status(200).json(posts[0]);
+      res.status(200).json(posts);
   } catch (error) {
       res.status(404).json({ message: error.message });
   }
@@ -90,7 +90,7 @@ app.get('/api/postss', async (req, res) => {
   //await Post.updateMany({ undeletable: { $exists: false } }, { $set: { undeletable: false } });
   //await Post.updateMany({ hidden: { $exists: false } }, { $set: { hidden: false } });
   //await Post.updateMany({ undeletable: { $exists: false } }, { $set: { undeletable: false } });
-  await Post.updateMany({ views: { $exists: false } }, { $set: { views: [] } });
+  //await Post.updateMany({ views: { $exists: false } }, { $set: { views: [] } });
   const page = req.query.page || 1;
   const pageSize = page * 20; // Adjust the page size as needed
 
