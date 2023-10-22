@@ -110,7 +110,8 @@ const PostListX = (props) => {
                     yeni,
                     gender,
                     hidden,
-                    undeletable
+                    undeletable,
+                    views
         })=> (<PostWidget
         
             key={_id ||0}
@@ -127,6 +128,7 @@ const PostListX = (props) => {
             undeletable={undeletable || false}
             yeni={yeni || false}
             gender={gender || ""}
+            views={views || []}
         />)
         )}
 
