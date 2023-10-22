@@ -68,8 +68,7 @@ app.post('/api/posts', async (req, res) => {
 //GET ALL POSTS
 
 app.get('/api/posts', async (req, res) => {
-  //await Post.updateMany({ hidden: { $exists: false } }, { $set: { hidden: false } });
-  //await Post.updateMany({ undeletable: { $exists: false } }, { $set: { undeletable: false } });
+ 
   const page = req.query.page || 1;
   const pageSize = page * 20; // Adjust the page size as needed
 
@@ -85,8 +84,10 @@ app.get('/api/posts', async (req, res) => {
 });
 
 
-
+// Add adjustments
 app.get('/api/postss', async (req, res) => {
+ //await Post.updateMany({ hidden: { $exists: false } }, { $set: { hidden: false } });
+  //await Post.updateMany({ undeletable: { $exists: false } }, { $set: { undeletable: false } });
   //await Post.updateMany({ hidden: { $exists: false } }, { $set: { hidden: false } });
   //await Post.updateMany({ undeletable: { $exists: false } }, { $set: { undeletable: false } });
   await Post.updateMany({ views: { $exists: false } }, { $set: { views: [] } });
