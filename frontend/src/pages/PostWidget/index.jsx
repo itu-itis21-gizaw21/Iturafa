@@ -231,14 +231,9 @@ const PostWidget = ({
                     <FlexBetween width={isNonMobileScreen?"40% !important":"45% !important"} margin="0em auto 0rem 0rem">
                         
                         
-                    <Box mr={isNonMobileScreen?"25%":"10%"} width="100%" display="flex" alignItems="center">
-                    <IconButton onClick={patchDisLike}>
-                        < VisibilityOutlined/>
-                    </IconButton>
-                    <Typography>{viewCount}</Typography>
-                    </Box>
+                  
 
-                    <Box mr="5%"  display="flex" alignItems="center">
+                    <Box display="flex" alignItems="center">
                         <IconButton onClick={patchLike}>
                         {isLiked ? (
                             <FavoriteOutlined sx={{ color: primary }} />
@@ -277,6 +272,13 @@ const PostWidget = ({
                         <IconButton onClick={handleShareClick}>
                             <ShareOutlined />
                         </IconButton>
+                    </Box>
+
+                    <Box gap="0.3rem" width="100%" display="flex" alignItems="center">
+                    <IconButton onClick={patchDisLike}>
+                        < VisibilityOutlined/>
+                    </IconButton>
+                    <Typography>{viewCount}</Typography>
                     </Box>
 
                 </FlexAround>
