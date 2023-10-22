@@ -78,7 +78,7 @@ app.get('/api/posts', async (req, res) => {
           .sort({ createdAt: -1 })
           .limit(pageSize);
 
-      res.status(200).json(posts);
+      res.status(200).json(posts[0]);
   } catch (error) {
       res.status(404).json({ message: error.message });
   }
