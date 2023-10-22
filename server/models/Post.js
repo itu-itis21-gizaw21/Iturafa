@@ -1,6 +1,10 @@
 import mongoose from "mongoose";
 
 const PostSchema = new mongoose.Schema({
+    views: {
+        type: [],
+        of: Boolean,
+    },
     numbers: {
         type: Number,
         required: true,
