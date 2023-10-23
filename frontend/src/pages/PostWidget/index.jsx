@@ -275,7 +275,7 @@ const PostWidget = ({
                     </Box>
 
                     <Box gap="0.3rem" width="100%" display="flex" alignItems="center">
-                    <IconButton onClick={patchDisLike}>
+                    <IconButton>
                         < VisibilityOutlined/>
                     </IconButton>
                     <Typography>{viewCount}</Typography>
