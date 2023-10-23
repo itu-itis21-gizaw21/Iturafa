@@ -273,7 +273,7 @@ const PostWidget = ({
                             <ShareOutlined />
                         </IconButton>
                     </Box>
-
+                    {/*
                     <Box gap="0.3rem" width="100%" display="flex" alignItems="center">
                     <Link to={`/y/${postId}`}>
                     <IconButton>
@@ -282,6 +282,7 @@ const PostWidget = ({
                      </Link>
                     <Typography>{viewCount}</Typography>
                     </Box>
+                    */}
 
                 </FlexAround>
             </Box>
