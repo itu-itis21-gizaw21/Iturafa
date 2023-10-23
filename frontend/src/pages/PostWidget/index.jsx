@@ -148,12 +148,12 @@ const PostWidget = ({
         setIsDialogOpen(false);
       };
 
-    
+    {/*
       useEffect(() => {
         // Call a function to increment the view count
         patchCount();
       }, []);
-
+*/}
     const formatDate = (date) => {
         const now = new Date();
   const elapsedMilliseconds = now - date;
