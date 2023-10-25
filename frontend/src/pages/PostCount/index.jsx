@@ -39,7 +39,7 @@ const PostCount = ({ count }) => {
       border = "1px solid #238636"
       borderBottom = "1px solid transparent"
       width= "30%"
-      ml = "10%%"
+      ml = "5%"
       mb = "0px !important"
       fontSize = "2rem"
     >
