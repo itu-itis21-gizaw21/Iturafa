@@ -83,7 +83,7 @@ async function GfetchUserData(createdX){
 }
 
 let uniqueIdentifier = localStorage.getItem('uniqueIdentifier');
-
+let reloadx = localStorage.setItem('reloadx','1');
 if (uniqueIdentifier) {
   const user = await GfetchUserData(uniqueIdentifier);
 }
