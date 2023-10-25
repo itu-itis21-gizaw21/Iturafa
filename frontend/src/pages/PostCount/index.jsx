@@ -39,7 +39,7 @@ const PostCount = ({ count }) => {
       margin = "auto !important"
      
     >
-      <Typography variant="h3" color="red" fontWeight="500">
+      <Typography variant="h3" color="red" fontWeight="500" border="1px solid green">
         {`itüraflar (${sx?.numbers})`}
       </Typography>
       
