@@ -37,6 +37,7 @@ const PostCount = ({ count }) => {
       
       fontWeight="bold"
       margin = "auto !important"
+      mb= "1px solid !important"
      
     >
       <Typography variant="h3" color="red" fontWeight="500" border="1px solid green" borderRadius="0.5rem" p={1}>
