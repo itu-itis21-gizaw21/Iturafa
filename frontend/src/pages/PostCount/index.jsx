@@ -40,8 +40,7 @@ const PostCount = ({ count }) => {
       borderBottom = "1px solid transparent"
     
       fontWeight="bold"
-      ml = "5%"
-      mb = "0px !important"
+      margin = "auto !important"
      
     >
       <Typography variant="h3" color="white" fontWeight="500">
