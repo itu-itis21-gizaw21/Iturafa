@@ -10,6 +10,7 @@ import { useTheme } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import Socials from '../Socials';
+import PostCount from '../PostCount';
 
 const HomePage = (props) => {
 
@@ -62,6 +63,7 @@ const HomePage = (props) => {
       <PostForm myVariable={myVariable} pcheck={false} /> {/* Component for creating new posts */}
       <Socials/>
       <Box sx={{ margin: "1.5rem auto"}} border="1px solid #00D5FA" width= {isNonMobileScreen ? "55%": "95%"} />
+      <PostCount count={10} />
       <PostList myVariable={myVariable} /> {/* Component for displaying posts */}
       <Box sx={{ margin: "3rem"}} border="1px solid transparent" height="50%" ></Box>
     </div>
