@@ -42,7 +42,10 @@ const SinglePost = (props) => {
   
   //console.log(getPage());
   console.log("pages", page);
+  
   const dispatch = useDispatch();
+
+  /*
   useEffect(() => {
     
     
@@ -62,7 +65,7 @@ const SinglePost = (props) => {
 
     fetchData();
 
-  }, [page]); 
+  }, [page]); */
   const posts = useSelector((state) => state.posts);
   const selectedPost = posts.find((post) => post._id === postId);
   if (!selectedPost) return null;
