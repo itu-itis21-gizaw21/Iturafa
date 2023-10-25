@@ -42,9 +42,9 @@ const PostCount = ({ count }) => {
       fontWeight="bold"
       ml = "5%"
       mb = "0px !important"
-      fontSize = "2rem"
+      fontSize = "1.5rem"
     >
-      <Typography variant="h2" color="textSecondary">
+      <Typography variant="h2" color="black">
         {`itüraflar (${sx?.numbers})`}
       </Typography>
       
