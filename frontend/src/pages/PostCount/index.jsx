@@ -37,9 +37,10 @@ const PostCount = ({ count }) => {
       backgroundColor="background.default"
       borderRadius="0.5rem"
       border = "1px solid #238636"
+      borderBottom = "1px solid transparent"
       width= "30%"
-      ml = "0%"
-      mb = "0px !important"
+      ml = "5%%"
+      mb = "2px !important"
       fontSize = "2rem"
     >
       <Typography variant="h6" color="textSecondary">
