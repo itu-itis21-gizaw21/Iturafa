@@ -27,6 +27,7 @@ const PostCount = ({ count }) => {
   }, []);
 
   const sx = posts[0];
+  const sxy = sx?.numbers || 0;
   console.log(sx?.numbers)
   return (
     <Box
@@ -41,7 +42,7 @@ const PostCount = ({ count }) => {
      
     >
       <Typography variant="h3" color="red" fontWeight="500" border="1px solid green" borderRadius="0.5rem" p={1}>
-        (sx?.numbers &&  {`itüraflar (${sx?.numbers})`})
+        {`itüraflar (${sxy})`}
       </Typography>
       
     </Box>
