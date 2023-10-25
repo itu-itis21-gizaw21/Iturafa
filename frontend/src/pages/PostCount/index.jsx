@@ -41,7 +41,7 @@ const PostCount = ({ count }) => {
      
     >
       <Typography variant="h3" color="red" fontWeight="500" border="1px solid green" borderRadius="0.5rem" p={1}>
-        {`itüraflar (${sx?.numbers})`}
+        {sx?.numbers &&  {`itüraflar (${sx?.numbers})`}}
       </Typography>
       
     </Box>
