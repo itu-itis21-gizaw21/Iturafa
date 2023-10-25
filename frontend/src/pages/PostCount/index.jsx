@@ -34,16 +34,12 @@ const PostCount = ({ count }) => {
       justifyContent="center"
       alignItems="center"
       p={1}
-      backgroundColor="#00D5FA"
-      borderRadius="0.5rem"
-      border = "2px solid #00D5FA"
-      borderBottom = "1px solid transparent"
-    
+      
       fontWeight="bold"
       margin = "auto !important"
      
     >
-      <Typography variant="h3" color="white" fontWeight="500">
+      <Typography variant="h3" color="red" fontWeight="500">
         {`itüraflar (${sx?.numbers})`}
       </Typography>
       
