@@ -14,7 +14,7 @@ const PostCount = ({ count }) => {
   const fetchData = async () => {
     try {
       const page = 1;
-      const response = await fetch(`http://localhost:3001/api/posts?page=${page}`);
+      const response = await fetch(`/api/posts?page=${page}`);
       const post = await response.json();
       setPosts(post);
     
@@ -24,10 +24,10 @@ const PostCount = ({ count }) => {
   };
   fetchData();
 
-}, []);
+  }, []);
 
   const sx = posts[0];
-  console.log(sx?.likedAt)
+  console.log(sx?.numbers)
   return (
     <Box
       display="flex"
@@ -36,13 +36,14 @@ const PostCount = ({ count }) => {
       p={1}
       backgroundColor="background.default"
       borderRadius="0.5rem"
-      border = "1px solid red"
+      border = "1px solid #238636"
       width= "30%"
       ml = "10%"
+      mb = "0px !important"
       fontSize = "2rem"
     >
       <Typography variant="h6" color="textSecondary">
-        {`Posts (${sx?.likedAt})`}
+        {`Posts (${sx?.numbers})`}
       </Typography>
       
     </Box>
