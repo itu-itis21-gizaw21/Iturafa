@@ -36,14 +36,15 @@ const PostCount = ({ count }) => {
       p={1}
       backgroundColor="background.default"
       borderRadius="0.5rem"
-      border = "1px solid #238636"
+      border = "2px solid #00D5FA"
       borderBottom = "1px solid transparent"
       width= "30%"
+      fontWeight="bold"
       ml = "5%"
       mb = "0px !important"
       fontSize = "2rem"
     >
-      <Typography variant="h3" color="textSecondary">
+      <Typography variant="h2" color="textSecondary">
         {`itüraflar (${sx?.numbers})`}
       </Typography>
       
