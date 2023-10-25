@@ -38,7 +38,7 @@ const PostCount = ({ count }) => {
       borderRadius="0.5rem"
       border = "2px solid #00D5FA"
       borderBottom = "1px solid transparent"
-      width= "50%"
+    
       fontWeight="bold"
       ml = "5%"
       mb = "0px !important"
