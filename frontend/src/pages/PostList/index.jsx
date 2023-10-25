@@ -69,7 +69,7 @@ const PostList = (props) => {
       return () => {
         window.removeEventListener("scroll", handleScroll);
       };
-    }, [page, dispatch]);
+    }, [page]);
 
 
    const formatDate = (date) => {
