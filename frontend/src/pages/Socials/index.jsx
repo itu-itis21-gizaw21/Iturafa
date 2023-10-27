@@ -39,7 +39,7 @@ const Socials = () => {
         rel="noopener noreferrer"
       >
         {/* <TwitterIcon style={iconStyle} />*/}
-        <Typography>🇹🇷 Yaşasın Cumhuriyet! 🇹🇷 </Typography>
+        <Typography>🇹🇷 Yaşasın Cumhurİyet! 🇹🇷 </Typography>
       </Button>
     </Box>
   );
