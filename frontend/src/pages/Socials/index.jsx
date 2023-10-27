@@ -39,7 +39,7 @@ const Socials = () => {
         rel="noopener noreferrer"
       >
         {/* <TwitterIcon style={iconStyle} />*/}
-        <Typography>Filistin halkının yanındayız! 🇵🇸 </Typography>
+        <Typography>🇹🇷 Yaşasın Cumhuriyet! 🇹🇷 </Typography>
       </Button>
     </Box>
   );
