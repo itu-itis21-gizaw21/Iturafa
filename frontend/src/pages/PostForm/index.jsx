@@ -84,6 +84,11 @@ const PostForm = (props) => {
         display: "flex",
         flexDirection: "row",
       };
+
+
+      const handleClickk = () => {
+    // This is an empty function, so nothing will happen when the button is clicked
+      };
    
     const handlePost = async () => {
         const descriptio = description;
@@ -296,7 +301,7 @@ const PostForm = (props) => {
 
            <FlexBetween>
             <Button
-                onClick={()=>()}
+                onClick={handleClickk}
                 sx={{
                     whiteSpace : "nowrap",
                     color: palette.background.alt,
