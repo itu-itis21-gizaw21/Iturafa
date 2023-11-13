@@ -39,7 +39,7 @@ const Socials = () => {
         rel="noopener noreferrer"
       >
         {/* <TwitterIcon style={iconStyle} />*/}
-        <Typography>🇹🇷 Yaşasın Cumhurİyet! 🇹🇷 </Typography>
+        <Typography>itüraf geçici olarak kapanmıştır</Typography>
       </Button>
     </Box>
   );
