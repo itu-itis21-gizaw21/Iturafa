@@ -219,7 +219,8 @@ const PostWidget = ({
                 </Box>
             <Box>
                 <Typography  variant="h5" sx={{ mt: "1rem",wordWrap: "break-word"  }}>{description}</Typography>
-                {postId == 655bbb8271e0a1f3f47bacc9 &&  <img src="https://i.ibb.co/LDFtDfg/admined.jpg" alt="Description" style={{ maxWidth: "100%", height: "auto", marginTop: "1rem" }} />
+                {postId == "655bbb8271e0a1f3f47bacc9" && 
+                    <img src="https://i.ibb.co/LDFtDfg/admined.jpg" alt="Description" style={{ maxWidth: "100%", height: "auto", marginTop: "1rem" }} />
                 }
             </Box>
             </Box>
