@@ -301,7 +301,7 @@ const PostForm = (props) => {
 
            <FlexBetween>
             <Button
-                onClick={handlePost}
+                onClick={handleClickk}
                 sx={{
                     whiteSpace : "nowrap",
                     color: palette.background.alt,
