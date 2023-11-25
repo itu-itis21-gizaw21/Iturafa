@@ -39,7 +39,7 @@ const Socials = () => {
         rel="noopener noreferrer"
       >
         {/* <TwitterIcon style={iconStyle} />*/}
-        <Typography>İtirafınızı birbirinize saygı duyarak yazın!</Typography>
+        <Typography>Lutfen itirafınızı birbirinize saygı duyarak yazın aq!</Typography>
       </Button>
     </Box>
   );
