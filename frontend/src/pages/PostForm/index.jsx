@@ -124,11 +124,25 @@ const PostForm = (props) => {
         return;
         }
 
+        
+
           if (otPattern.test(usernam)) {
         // If the description contains " ot " with one space before and after, don't post
         return;
         }
 
+        
+        const amPattern = /(^|\s)am(\s|$)/i;; // The "i" flag makes the search case-insensitive
+        if (amPattern.test(descriptio)) {
+        // If the description contains " ot " with one space before and after, don't post
+        return;
+        }
+
+        
+          if (amPattern.test(usernam)) {
+        // If the description contains " ot " with one space before and after, don't post
+        return;
+        }
          const otPattern1 = /(^|\s)0t(\s|$)/i; // The "i" flag makes the search case-insensitive
         if (otPattern1.test(descriptio)) {
         // If the description contains " ot " with one space before and after, don't post
@@ -301,7 +315,7 @@ const PostForm = (props) => {
 
            <FlexBetween>
             <Button
-                onClick={handleClickk}
+                onClick={handlePost}
                 sx={{
                     whiteSpace : "nowrap",
                     color: palette.background.alt,
