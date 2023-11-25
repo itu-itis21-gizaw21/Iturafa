@@ -31,7 +31,7 @@ const Socials = () => {
 
   return (
     <Box style={containerStyle}>
-      <Button
+      <Box
         
         style={buttonStyle}
        
@@ -40,7 +40,7 @@ const Socials = () => {
       >
         {/* <TwitterIcon style={iconStyle} />*/}
         <Typography>Lutfen itirafınızı birbirinize saygı duyarak yazın aq!</Typography>
-      </Button>
+      </Box>
     </Box>
   );
 };
