@@ -32,7 +32,7 @@ const Socials = () => {
   return (
     <Box style={containerStyle}>
       <Button
-        variant="contained"
+        
         style={buttonStyle}
        
         href=""
