@@ -34,9 +34,9 @@ const Socials = () => {
       <Button
         variant="contained"
         style={buttonStyle}
-        component="a"
+       
         href=""
-        rel="noopener noreferrer"
+        
       >
         {/* <TwitterIcon style={iconStyle} />*/}
         <Typography>Lutfen itirafınızı birbirinize saygı duyarak yazın aq!</Typography>
