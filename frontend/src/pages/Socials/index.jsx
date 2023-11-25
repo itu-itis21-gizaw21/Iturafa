@@ -1,7 +1,7 @@
 // TwitterFollowButton.jsx
 
 import React from 'react';
-import { Button, Typography, Box } from '@mui/material';
+import { Button, Typography, Box,Card } from '@mui/material';
 import TwitterIcon from '@mui/icons-material/Twitter';
 
 const Socials = () => {
@@ -31,7 +31,7 @@ const Socials = () => {
 
   return (
     <Box style={containerStyle}>
-      <Box
+      <Card
         
         style={buttonStyle}
        
@@ -40,7 +40,7 @@ const Socials = () => {
       >
         {/* <TwitterIcon style={iconStyle} />*/}
         <Typography>Lutfen itirafınızı birbirinize saygı duyarak yazın aq!</Typography>
-      </Box>
+      </Card>
     </Box>
   );
 };
