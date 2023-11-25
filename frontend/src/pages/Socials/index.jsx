@@ -39,7 +39,7 @@ const Socials = () => {
         rel="noopener noreferrer"
       >
         {/* <TwitterIcon style={iconStyle} />*/}
-        <Typography>itüraf özelliği geçici olarak kapanmıştır</Typography>
+        <Typography>İtirafınızı birbirinize saygı duyarak yazın!</Typography>
       </Button>
     </Box>
   );
