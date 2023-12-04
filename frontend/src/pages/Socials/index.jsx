@@ -7,7 +7,7 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 const Socials = () => {
   const containerStyle = {
     textAlign: 'center',
-    marginTop: '1rem',
+    margin: "1rem auto",
     width: "50%",
   };
 
@@ -15,6 +15,7 @@ const Socials = () => {
     backgroundColor: '#00ACEE', // Twitter blue color
     color: 'white',
     width: "50%",
+    margin: "1px auto",
     borderRadius: '1rem',
     padding: '0.5rem 1rem',
     fontSize: '1rem',
