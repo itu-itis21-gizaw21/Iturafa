@@ -8,11 +8,13 @@ const Socials = () => {
   const containerStyle = {
     textAlign: 'center',
     marginTop: '1rem',
+    width: "50%",
   };
 
   const buttonStyle = {
     backgroundColor: '#00ACEE', // Twitter blue color
     color: 'white',
+    width: "50%",
     borderRadius: '1rem',
     padding: '0.5rem 1rem',
     fontSize: '1rem',
@@ -39,7 +41,7 @@ const Socials = () => {
         
       >
         {/* <TwitterIcon style={iconStyle} />*/}
-        <Typography>Lutfen iturafınızı birbirinize saygı duyarak yazın aq!!</Typography>
+        <Typography>Lutfen iturafınızı birbirinize saygı duyarak yazın!!</Typography>
       </Card>
     </Box>
   );
